@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Jonathan B</title>
-    <link>https://jbeattie5768.github.io/</link>
+    <link>http://localhost:8000/</link>
     <description>Recent content on Jonathan B</description>
     <generator>Hugo -- 0.147.9</generator>
     <language>en-gb</language>
     <lastBuildDate>Sun, 06 Jul 2025 16:39:58 +0100</lastBuildDate>
-    <atom:link href="https://jbeattie5768.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:8000/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Test_post</title>
-      <link>https://jbeattie5768.github.io/posts/test_post/</link>
+      <link>http://localhost:8000/posts/test_post/</link>
       <pubDate>Sun, 06 Jul 2025 16:39:58 +0100</pubDate>
-      <guid>https://jbeattie5768.github.io/posts/test_post/</guid>
+      <guid>http://localhost:8000/posts/test_post/</guid>
       <description>&lt;p&gt;This is a test post to my Github Pages.&lt;/p&gt;</description>
     </item>
     <item>
       <title>About</title>
-      <link>https://jbeattie5768.github.io/about/</link>
+      <link>http://localhost:8000/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://jbeattie5768.github.io/about/</guid>
+      <guid>http://localhost:8000/about/</guid>
       <description>&lt;p&gt;I sometimes update the blog.&lt;/p&gt;
 &lt;p&gt;Contact: &lt;a href=&#34;mailto:jbeattie5768@gmail.com&#34;&gt;jbeattie5768@gmail.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Website info: &lt;br&gt;

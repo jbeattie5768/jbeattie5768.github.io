@@ -2,28 +2,28 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://jbeattie5768.github.io/posts/</loc>
+    <loc>http://localhost:8000/posts/</loc>
     <lastmod>2025-07-06T16:39:58+01:00</lastmod>
   </url><url>
-    <loc>https://jbeattie5768.github.io/</loc>
+    <loc>http://localhost:8000/</loc>
     <lastmod>2025-07-06T16:39:58+01:00</lastmod>
   </url><url>
-    <loc>https://jbeattie5768.github.io/tags/</loc>
+    <loc>http://localhost:8000/tags/</loc>
     <lastmod>2025-07-06T16:39:58+01:00</lastmod>
   </url><url>
-    <loc>https://jbeattie5768.github.io/tags/post/</loc>
+    <loc>http://localhost:8000/tags/post/</loc>
     <lastmod>2025-07-06T16:39:58+01:00</lastmod>
   </url><url>
-    <loc>https://jbeattie5768.github.io/tags/test/</loc>
+    <loc>http://localhost:8000/tags/test/</loc>
     <lastmod>2025-07-06T16:39:58+01:00</lastmod>
   </url><url>
-    <loc>https://jbeattie5768.github.io/posts/test_post/</loc>
+    <loc>http://localhost:8000/posts/test_post/</loc>
     <lastmod>2025-07-06T16:39:58+01:00</lastmod>
   </url><url>
-    <loc>https://jbeattie5768.github.io/about/</loc>
+    <loc>http://localhost:8000/about/</loc>
   </url><url>
-    <loc>https://jbeattie5768.github.io/categories/</loc>
+    <loc>http://localhost:8000/categories/</loc>
   </url><url>
-    <loc>https://jbeattie5768.github.io/search/</loc>
+    <loc>http://localhost:8000/search/</loc>
   </url>
 </urlset>
