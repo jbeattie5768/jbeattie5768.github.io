@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Posts on Jonathan B</title>
-    <link>http://localhost:8000/posts/</link>
+    <link>https://jbeattie5768.github.io/posts/</link>
     <description>Recent content in Posts on Jonathan B</description>
     <generator>Hugo -- 0.147.9</generator>
     <language>en-gb</language>
     <lastBuildDate>Sun, 06 Jul 2025 16:39:58 +0100</lastBuildDate>
-    <atom:link href="http://localhost:8000/posts/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://jbeattie5768.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Test_post</title>
-      <link>http://localhost:8000/posts/test_post/</link>
+      <link>https://jbeattie5768.github.io/posts/test_post/</link>
       <pubDate>Sun, 06 Jul 2025 16:39:58 +0100</pubDate>
-      <guid>http://localhost:8000/posts/test_post/</guid>
+      <guid>https://jbeattie5768.github.io/posts/test_post/</guid>
       <description>&lt;p&gt;This is a test post to my Github Pages.&lt;/p&gt;</description>
     </item>
   </channel>
