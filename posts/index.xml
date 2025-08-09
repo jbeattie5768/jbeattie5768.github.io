@@ -6,8 +6,21 @@
     <description>Recent content in Posts on Jonathan B</description>
     <generator>Hugo -- 0.147.9</generator>
     <language>en-gb</language>
-    <lastBuildDate>Sat, 12 Jul 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 27 Jul 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://jbeattie5768.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Modernizing Python Development: My Switch to UV</title>
+      <link>https://jbeattie5768.github.io/posts/2025-07-27-modernizing-python-development-my-switch-to-uv/</link>
+      <pubDate>Sun, 27 Jul 2025 00:00:00 +0000</pubDate>
+      <guid>https://jbeattie5768.github.io/posts/2025-07-27-modernizing-python-development-my-switch-to-uv/</guid>
+      <description>&lt;hr&gt;
+&lt;h2 id=&#34;introduction-&#34;&gt;Introduction 🚀&lt;/h2&gt;
+&lt;p&gt;Python development is evolving rapidly, and &lt;a href=&#34;https://docs.astral.sh/uv/&#34;&gt;UV&lt;/a&gt; is at the forefront of this transformation. In this post, I wanted to document my experience switching to UV, why and I how I&amp;rsquo;ve started the move to a modern workflow.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;main-content&#34;&gt;Main Content&lt;/h2&gt;
+&lt;h3 id=&#34;why-now-&#34;&gt;Why Now? ⏰&lt;/h3&gt;
+&lt;p&gt;The Python ecosystem is changing, and UV is a major addition to the modern toolkit. With a new Windows 11 laptop and a growing appreciation for PowerShell 7, it was the perfect opportunity to embrace UV and other up-to-date tools. Astral, the company behind UV and Ruff, has made cross-platform support seamless, and their documentation is clear for all major operating systems, but I will focus on WIndows.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Test Post</title>
       <link>https://jbeattie5768.github.io/posts/2025-07-12-test-post/</link>
