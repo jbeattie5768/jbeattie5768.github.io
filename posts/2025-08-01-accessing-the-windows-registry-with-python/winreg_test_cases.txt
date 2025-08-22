@@ -1,0 +1,29 @@
+# #############################################################################
+root_hkey = winreg.HKEY_CURRENT_USER
+root_path = r"Software\Python"                       # List User Python installs
+root_path = r"Software\Classes\.py\OpenWithProgids"  # .py files associated with
+root_path = r"Software\Classes\AppUserModelId"       # Forward slash in key
+root_path = ""                                       # Not recommended for all HKey type
+
+# #############################################################################
+root_hkey = winreg.HKEY_LOCAL_MACHINE
+root_path = r"Software\Python"                       # List System 'Pythoncore' installs
+root_path = r"HARDWARE\DEVICEMAP\VIDEO"              # Unusual Name:Value
+root_path = r"Software\Microsoft\Input\Locales\Loc_0039\Inputmethods"  # Unusual Char
+root_path = r"Software\Microsoft\Windows Nt\Currentversion\FontMapperFamilyFallback"                          # Char Encoding
+root_path = r"System\Controlset001\Control\Class\{4D36E96C-E325-11Ce-Bfc1-08002Be10318}\Configuration\Reset"  # Type 'REG_UNKNOWN' example
+root_path = ""                                       # Not recommended
+
+# #############################################################################
+root_hkey = winreg.HKEY_CLASSES_ROOT
+root_path = s"Wow6432Node\Appid\OneDrive.EXE"  # Errors: Reg does not work on my Laptop for this entry
+root_path = r"Installer\Dependencies"          # Mentions System Python
+root_path = ""                                 # Not recommended, likely get error unless you have a "perfect" WinReg
+
+# #############################################################################
+root_hkey = winreg.HKEY_USERS
+root_path = ""                                 # Not recommended, nothing of interest
+
+# #############################################################################
+root_hkey = winreg.HKEY_CURRENT_CONFIG
+root_path = ""                                 # Pretty much empty for me

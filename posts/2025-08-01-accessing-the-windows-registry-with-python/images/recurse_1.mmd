@@ -1,0 +1,11 @@
+flowchart TD
+    A[Function Entry: Traverse Key-Path] --> B[Get Values for Key-Path]
+    B --> C{For each Subkey in get_keys}
+    C -- No more Subkeys --> CC[Continue]
+    C-- For each Subkey -->D[Build Subkey-Path]
+    D--> E[Get Values for Subkey-Path]
+    E --> F{For each Sub-Subkey-Path in get_keys}
+    F -- No more Sub-Subkeys --> FF[Continue]
+    F -- For each Sub-Subkey --> G[Build Sub-Subkey-Path]
+    G --> H[Recursive call: Traverse Sub-Subkey-Path]
+    H --> A
