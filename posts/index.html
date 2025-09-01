@@ -154,6 +154,23 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">VSCode Terminal Does Not Match the Windows System PATH
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>If your Windows PATH environment variable in your VSCode terminal does not match the one in your terminal outside of VSCode, it’s probably this setting in VSCode:
+terminal.integrated.enablePersistentSessions
+Uncheck this or set it to be false, and restart VScode and all should be right.
+By default, this option persists your terminal sessions across reloads (VSCode Terminal Advanced Docs).
+That might be handy, so re-enabling it afterwards would be okay if you really wanted it, but for me I’ve disabled it in my user settings:
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2025-08-29 00:00:00 +0000 UTC'>August 29, 2025</span>&nbsp;·&nbsp;Jonathan B</footer>
+  <a class="entry-link" aria-label="post link to VSCode Terminal Does Not Match the Windows System PATH" href="https://jbeattie5768.github.io/posts/2025-08-29-vscode-terminal-does-not-match-the-windows-path-environment/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">Reading the Windows Registry with Python: A Case Study Using WinReg
     </h2>
   </header>

@@ -5,11 +5,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>My Custom Tags Title | Jonathan B</title>
+<title>Settings | Jonathan B</title>
 <meta name="keywords" content="">
 <meta name="description" content="">
 <meta name="author" content="Jonathan B">
-<link rel="canonical" href="https://jbeattie5768.github.io/tags/">
+<link rel="canonical" href="https://jbeattie5768.github.io/tags/settings/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.8fe10233a706bc87f2e08b3cf97b8bd4c0a80f10675a143675d59212121037c0.css" integrity="sha256-j&#43;ECM6cGvIfy4Is8&#43;XuL1MCoDxBnWhQ2ddWSEhIQN8A=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://jbeattie5768.github.io/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://jbeattie5768.github.io/favicon-16x16.png">
@@ -18,8 +18,8 @@
 <link rel="mask-icon" href="https://jbeattie5768.github.io/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" type="application/rss+xml" href="https://jbeattie5768.github.io/tags/index.xml">
-<link rel="alternate" hreflang="en" href="https://jbeattie5768.github.io/tags/">
+<link rel="alternate" type="application/rss+xml" href="https://jbeattie5768.github.io/tags/settings/index.xml">
+<link rel="alternate" hreflang="en" href="https://jbeattie5768.github.io/tags/settings/">
 <noscript>
     <style>
         #theme-toggle,
@@ -56,13 +56,13 @@
         }
 
     </style>
-</noscript><meta property="og:url" content="https://jbeattie5768.github.io/tags/">
+</noscript><meta property="og:url" content="https://jbeattie5768.github.io/tags/settings/">
   <meta property="og:site_name" content="Jonathan B">
-  <meta property="og:title" content="My Custom Tags Title">
+  <meta property="og:title" content="Settings">
   <meta property="og:locale" content="en-gb">
   <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="My Custom Tags Title">
+<meta name="twitter:title" content="Settings">
 <meta name="twitter:description" content="">
 
 </head>
@@ -114,7 +114,7 @@
             </li>
             <li>
                 <a href="https://jbeattie5768.github.io/tags/" title="Tags">
-                    <span class="active">Tags</span>
+                    <span>Tags</span>
                 </a>
             </li>
             <li>
@@ -130,52 +130,29 @@
         </ul>
     </nav>
 </header>
-<main class="main">
-<header class="page-header">
-    <h1>My Custom Tags Title</h1>
+<main class="main"> 
+<header class="page-header"><div class="breadcrumbs"><a href="https://jbeattie5768.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://jbeattie5768.github.io/tags/">My Custom Tags Title</a></div>
+  <h1>
+    Settings
+  </h1>
 </header>
 
-<ul class="terms-tags">
-    <li>
-        <a href="https://jbeattie5768.github.io/tags/config/">Config <sup><strong><sup>1</sup></strong></sup> </a>
-    </li>
-    <li>
-        <a href="https://jbeattie5768.github.io/tags/pep-514/">PEP 514 <sup><strong><sup>1</sup></strong></sup> </a>
-    </li>
-    <li>
-        <a href="https://jbeattie5768.github.io/tags/post/">Post <sup><strong><sup>1</sup></strong></sup> </a>
-    </li>
-    <li>
-        <a href="https://jbeattie5768.github.io/tags/python/">Python <sup><strong><sup>3</sup></strong></sup> </a>
-    </li>
-    <li>
-        <a href="https://jbeattie5768.github.io/tags/ruff/">Ruff <sup><strong><sup>1</sup></strong></sup> </a>
-    </li>
-    <li>
-        <a href="https://jbeattie5768.github.io/tags/settings/">Settings <sup><strong><sup>1</sup></strong></sup> </a>
-    </li>
-    <li>
-        <a href="https://jbeattie5768.github.io/tags/terminal/">Terminal <sup><strong><sup>1</sup></strong></sup> </a>
-    </li>
-    <li>
-        <a href="https://jbeattie5768.github.io/tags/test/">Test <sup><strong><sup>1</sup></strong></sup> </a>
-    </li>
-    <li>
-        <a href="https://jbeattie5768.github.io/tags/tools/">Tools <sup><strong><sup>2</sup></strong></sup> </a>
-    </li>
-    <li>
-        <a href="https://jbeattie5768.github.io/tags/uv/">UV <sup><strong><sup>1</sup></strong></sup> </a>
-    </li>
-    <li>
-        <a href="https://jbeattie5768.github.io/tags/vscode/">VSCode <sup><strong><sup>1</sup></strong></sup> </a>
-    </li>
-    <li>
-        <a href="https://jbeattie5768.github.io/tags/windows-registry/">Windows Registry <sup><strong><sup>1</sup></strong></sup> </a>
-    </li>
-    <li>
-        <a href="https://jbeattie5768.github.io/tags/winreg/">WinReg <sup><strong><sup>1</sup></strong></sup> </a>
-    </li>
-</ul>
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">VSCode Terminal Does Not Match the Windows System PATH
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>If your Windows PATH environment variable in your VSCode terminal does not match the one in your terminal outside of VSCode, it’s probably this setting in VSCode:
+terminal.integrated.enablePersistentSessions
+Uncheck this or set it to be false, and restart VScode and all should be right.
+By default, this option persists your terminal sessions across reloads (VSCode Terminal Advanced Docs).
+That might be handy, so re-enabling it afterwards would be okay if you really wanted it, but for me I’ve disabled it in my user settings:
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2025-08-29 00:00:00 +0000 UTC'>August 29, 2025</span>&nbsp;·&nbsp;Jonathan B</footer>
+  <a class="entry-link" aria-label="post link to VSCode Terminal Does Not Match the Windows System PATH" href="https://jbeattie5768.github.io/posts/2025-08-29-vscode-terminal-does-not-match-the-windows-path-environment/"></a>
+</article>
     </main>
     
 <footer class="footer">
