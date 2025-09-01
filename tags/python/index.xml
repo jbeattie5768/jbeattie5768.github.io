@@ -16,14 +16,49 @@
       <description>&lt;hr&gt;
 &lt;h2 id=&#34;table-of-contents&#34;&gt;Table of Contents&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;#1-introduction&#34;&gt;Introduction&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#2-background-what-is-the-windows-registry&#34;&gt;Background: What is the Windows Registry?&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#3-the-problem-with-sample-code-lessons-from-pep-514&#34;&gt;The Problem with Sample Code: Lessons from PEP 514&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#4-exploring-the-registry-exporting-and-analysing-data&#34;&gt;Exploring the Registry: Exporting and Analysing Data&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#5-building-a-better-registry-reader-in-python&#34;&gt;Building a Better Registry Reader in Python&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#6-practical-example-using-the-script&#34;&gt;Practical Example: Using the Script&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#7-key-takeaways&#34;&gt;Key Takeaways&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#8-try-it-yourself&#34;&gt;Try It Yourself&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#table-of-contents&#34;&gt;Table of Contents&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#1-introduction&#34;&gt;1. Introduction&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#2-background-what-is-the-windows-registry&#34;&gt;2. Background: What is the Windows Registry?&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#structure-of-the-windows-registry&#34;&gt;Structure of the Windows Registry&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#3-the-problem-with-sample-code-lessons-from-pep-514&#34;&gt;3. The Problem with Sample Code: Lessons from PEP 514&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#4-exploring-the-registry-exporting-and-analysing-data&#34;&gt;4. Exploring the Registry: Exporting and Analysing Data&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#example-analysing-exported-registry-files&#34;&gt;Example: Analysing Exported Registry Files&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#example-summary-of-my-registry-key-statistics&#34;&gt;Example summary of my registry key statistics&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#5-building-a-better-registry-reader-in-python&#34;&gt;5. Building a Better Registry Reader in Python&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#getting-keys-and-values&#34;&gt;Getting Keys and Values&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#traversing-subkeys-via-recursion&#34;&gt;Traversing Subkeys via Recursion&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#printing-results&#34;&gt;Printing Results&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#arguments-with-argparse&#34;&gt;Arguments with ArgParse&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#issues-found&#34;&gt;Issues Found&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#final-tidy&#34;&gt;Final Tidy&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#6-practical-example-using-the-script&#34;&gt;6. Practical Example: Using the Script&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#command-line-examples&#34;&gt;Command-line Examples&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#script-examples&#34;&gt;Script Examples&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#example-1&#34;&gt;Example 1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#example-2&#34;&gt;Example 2&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#7-key-takeaways&#34;&gt;7. Key Takeaways&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#reading-a-registry-value&#34;&gt;Reading a Registry Value&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#writing-to-the-registry&#34;&gt;Writing to the Registry&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#deleting-a-registry-key-or-value&#34;&gt;Deleting a Registry Key or Value&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#8-try-it-yourself&#34;&gt;8. Try It Yourself&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;1-introduction&#34;&gt;1. Introduction&lt;/h2&gt;
@@ -41,6 +76,55 @@
 &lt;h2 id=&#34;main-content&#34;&gt;Main Content&lt;/h2&gt;
 &lt;h3 id=&#34;why-now-&#34;&gt;Why Now? ⏰&lt;/h3&gt;
 &lt;p&gt;The Python ecosystem is changing, and UV is a major addition to the modern toolkit. With a new Windows 11 laptop and a growing appreciation for PowerShell 7, it was the perfect opportunity to embrace UV and other up-to-date tools. Astral, the company behind UV and Ruff, has made cross-platform support seamless, and their documentation is clear for all major operating systems, but I will focus on WIndows.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Modernizing Python Development: Linting and Formatting with Ruff</title>
+      <link>https://jbeattie5768.github.io/posts/2025-07-18-using-ruff-to-improve-python-development/</link>
+      <pubDate>Fri, 18 Jul 2025 00:00:00 +0000</pubDate>
+      <guid>https://jbeattie5768.github.io/posts/2025-07-18-using-ruff-to-improve-python-development/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://github.com/astral-sh/ruff&#34;&gt;&lt;img alt=&#34;Ruff&#34; loading=&#34;lazy&#34; src=&#34;https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#introduction&#34;&gt;Introduction&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#what-are-linters-and-formatters&#34;&gt;What are Linters and Formatters&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#linters&#34;&gt;Linters&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#formatters&#34;&gt;Formatters&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#why-you-should-use-them&#34;&gt;Why You Should Use Them&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#what-is-ruff&#34;&gt;What is Ruff?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#getting-started-with-ruff&#34;&gt;Getting Started with Ruff&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#installation-steps&#34;&gt;Installation steps&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#basic-cli-usage&#34;&gt;Basic CLI Usage&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#ruff-check---output-format-concise-examplepy&#34;&gt;&lt;code&gt;ruff check --output-format concise .\example.py&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#ruff-format-examplepy&#34;&gt;&lt;code&gt;ruff format .\example.py&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#configuration&#34;&gt;Configuration&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#rules&#34;&gt;Rules&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#integrating-ruff-into-your-workflow&#34;&gt;Integrating Ruff into your workflow&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#cli&#34;&gt;CLI&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#ide&#34;&gt;IDE&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#pre-commit&#34;&gt;Pre-Commit&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#github-action&#34;&gt;GitHub Action&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#tips&#34;&gt;Tips&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#conclusion&#34;&gt;Conclusion&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#further-reading&#34;&gt;Further Reading&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;Python development is evolving—today, code quality and consistency are more important than ever. &lt;strong&gt;Strict&lt;/strong&gt; is the new &lt;em&gt;cool&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Tools like &lt;a href=&#34;https://github.com/psf/black&#34;&gt;Black&lt;/a&gt; have made opinionated formatting mainstream, and the need for readable, maintainable, and error-free code is greater than ever—especially as projects grow and AI-driven code/tools become more prevalent.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
