@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Config on Jonathan B</title>
-    <link>http://localhost:1313/tags/config/</link>
+    <link>https://jbeattie5768.github.io/tags/config/</link>
     <description>Recent content in Config on Jonathan B</description>
     <generator>Hugo -- 0.147.9</generator>
     <language>en-gb</language>
     <lastBuildDate>Fri, 29 Aug 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/config/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://jbeattie5768.github.io/tags/config/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>VSCode Terminal Does Not Match the Windows System PATH</title>
-      <link>http://localhost:1313/posts/2025-08-29-vscode-terminal-does-not-match-the-windows-path-environment/</link>
+      <link>https://jbeattie5768.github.io/posts/2025-08-29-vscode-terminal-does-not-match-the-windows-path-environment/</link>
       <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/2025-08-29-vscode-terminal-does-not-match-the-windows-path-environment/</guid>
+      <guid>https://jbeattie5768.github.io/posts/2025-08-29-vscode-terminal-does-not-match-the-windows-path-environment/</guid>
       <description>&lt;p&gt;If your Windows &lt;em&gt;PATH&lt;/em&gt; environment variable in your VSCode terminal does not match the one in your terminal outside of VSCode, it&amp;rsquo;s probably this setting in VSCode:&lt;/p&gt;
-&lt;p&gt;&lt;img alt=&#34;Setting&#34; loading=&#34;lazy&#34; src=&#34;http://localhost:1313/posts/2025-08-29-vscode-terminal-does-not-match-the-windows-path-environment/images/2025-07-18-path-04.jpg&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;Setting&#34; loading=&#34;lazy&#34; src=&#34;https://jbeattie5768.github.io/posts/2025-08-29-vscode-terminal-does-not-match-the-windows-path-environment/images/2025-07-18-path-04.jpg&#34;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;&lt;strong&gt;terminal.integrated.enablePersistentSessions&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;Uncheck this or set it to be &lt;em&gt;false&lt;/em&gt;, and restart VScode and all should be right.&lt;/p&gt;
 &lt;p&gt;By default, this option persists your terminal sessions across reloads (&lt;a href=&#34;https://code.visualstudio.com/docs/terminal/advanced&#34;&gt;VSCode &lt;strong&gt;Terminal&lt;/strong&gt; Advanced Docs&lt;/a&gt;).&lt;br&gt;

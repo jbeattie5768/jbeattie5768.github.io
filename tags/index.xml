@@ -2,115 +2,115 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>My Custom Tags Title on Jonathan B</title>
-    <link>http://localhost:1313/tags/</link>
+    <link>https://jbeattie5768.github.io/tags/</link>
     <description>Recent content in My Custom Tags Title on Jonathan B</description>
     <generator>Hugo -- 0.147.9</generator>
     <language>en-gb</language>
     <lastBuildDate>Sun, 12 Oct 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://jbeattie5768.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>UV</title>
-      <link>http://localhost:1313/tags/uv/</link>
+      <link>https://jbeattie5768.github.io/tags/uv/</link>
       <pubDate>Sun, 12 Oct 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/uv/</guid>
+      <guid>https://jbeattie5768.github.io/tags/uv/</guid>
       <description></description>
     </item>
     <item>
       <title>UVX</title>
-      <link>http://localhost:1313/tags/uvx/</link>
+      <link>https://jbeattie5768.github.io/tags/uvx/</link>
       <pubDate>Sun, 12 Oct 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/uvx/</guid>
+      <guid>https://jbeattie5768.github.io/tags/uvx/</guid>
       <description></description>
     </item>
     <item>
       <title>Yt-Dlp</title>
-      <link>http://localhost:1313/tags/yt-dlp/</link>
+      <link>https://jbeattie5768.github.io/tags/yt-dlp/</link>
       <pubDate>Sun, 12 Oct 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/yt-dlp/</guid>
+      <guid>https://jbeattie5768.github.io/tags/yt-dlp/</guid>
       <description></description>
     </item>
     <item>
       <title>Config</title>
-      <link>http://localhost:1313/tags/config/</link>
+      <link>https://jbeattie5768.github.io/tags/config/</link>
       <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/config/</guid>
+      <guid>https://jbeattie5768.github.io/tags/config/</guid>
       <description></description>
     </item>
     <item>
       <title>Settings</title>
-      <link>http://localhost:1313/tags/settings/</link>
+      <link>https://jbeattie5768.github.io/tags/settings/</link>
       <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/settings/</guid>
+      <guid>https://jbeattie5768.github.io/tags/settings/</guid>
       <description></description>
     </item>
     <item>
       <title>Terminal</title>
-      <link>http://localhost:1313/tags/terminal/</link>
+      <link>https://jbeattie5768.github.io/tags/terminal/</link>
       <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/terminal/</guid>
+      <guid>https://jbeattie5768.github.io/tags/terminal/</guid>
       <description></description>
     </item>
     <item>
       <title>VSCode</title>
-      <link>http://localhost:1313/tags/vscode/</link>
+      <link>https://jbeattie5768.github.io/tags/vscode/</link>
       <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/vscode/</guid>
+      <guid>https://jbeattie5768.github.io/tags/vscode/</guid>
       <description></description>
     </item>
     <item>
       <title>PEP 514</title>
-      <link>http://localhost:1313/tags/pep-514/</link>
+      <link>https://jbeattie5768.github.io/tags/pep-514/</link>
       <pubDate>Fri, 01 Aug 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/pep-514/</guid>
+      <guid>https://jbeattie5768.github.io/tags/pep-514/</guid>
       <description></description>
     </item>
     <item>
       <title>Python</title>
-      <link>http://localhost:1313/tags/python/</link>
+      <link>https://jbeattie5768.github.io/tags/python/</link>
       <pubDate>Fri, 01 Aug 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/python/</guid>
+      <guid>https://jbeattie5768.github.io/tags/python/</guid>
       <description></description>
     </item>
     <item>
       <title>Windows Registry</title>
-      <link>http://localhost:1313/tags/windows-registry/</link>
+      <link>https://jbeattie5768.github.io/tags/windows-registry/</link>
       <pubDate>Fri, 01 Aug 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/windows-registry/</guid>
+      <guid>https://jbeattie5768.github.io/tags/windows-registry/</guid>
       <description></description>
     </item>
     <item>
       <title>WinReg</title>
-      <link>http://localhost:1313/tags/winreg/</link>
+      <link>https://jbeattie5768.github.io/tags/winreg/</link>
       <pubDate>Fri, 01 Aug 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/winreg/</guid>
+      <guid>https://jbeattie5768.github.io/tags/winreg/</guid>
       <description></description>
     </item>
     <item>
       <title>Tools</title>
-      <link>http://localhost:1313/tags/tools/</link>
+      <link>https://jbeattie5768.github.io/tags/tools/</link>
       <pubDate>Sun, 27 Jul 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/tools/</guid>
+      <guid>https://jbeattie5768.github.io/tags/tools/</guid>
       <description></description>
     </item>
     <item>
       <title>Ruff</title>
-      <link>http://localhost:1313/tags/ruff/</link>
+      <link>https://jbeattie5768.github.io/tags/ruff/</link>
       <pubDate>Fri, 18 Jul 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/ruff/</guid>
+      <guid>https://jbeattie5768.github.io/tags/ruff/</guid>
       <description></description>
     </item>
     <item>
       <title>Post</title>
-      <link>http://localhost:1313/tags/post/</link>
+      <link>https://jbeattie5768.github.io/tags/post/</link>
       <pubDate>Sat, 12 Jul 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/post/</guid>
+      <guid>https://jbeattie5768.github.io/tags/post/</guid>
       <description></description>
     </item>
     <item>
       <title>Test</title>
-      <link>http://localhost:1313/tags/test/</link>
+      <link>https://jbeattie5768.github.io/tags/test/</link>
       <pubDate>Sat, 12 Jul 2025 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/test/</guid>
+      <guid>https://jbeattie5768.github.io/tags/test/</guid>
       <description></description>
     </item>
   </channel>
