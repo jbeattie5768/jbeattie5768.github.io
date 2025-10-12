@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>Using YT-DLP With UVX | Jonathan B</title>
+<meta name="keywords" content="UV, UVX, yt-dlp">
+<meta name="description" content="Introduction
+YT‑DLP is a fast, actively maintained command-line tool for downloading audio and video from many sites. I use it to extract audio from videos for offline listening on walks. This post shows a simple, reproducible workflow using UV/UVX so you can run YT‑DLP without installing it system‑wide, plus a small PowerShell helper script to make converting downloads easier.
+What you’ll find here:
+
+How I run YT‑DLP via UVX
+A ready-to-use PowerShell script
+Prerequisites and quick troubleshooting tips
+
+Legal/Terms reminder: only download content you have the right to store or that is permitted by the content provider&rsquo;s terms of service.">
+<meta name="author" content="Jonathan B">
+<link rel="canonical" href="http://localhost:1313/posts/2025-10-12-using-yt-dlp-with-uvx/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.8fe10233a706bc87f2e08b3cf97b8bd4c0a80f10675a143675d59212121037c0.css" integrity="sha256-j&#43;ECM6cGvIfy4Is8&#43;XuL1MCoDxBnWhQ2ddWSEhIQN8A=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/2025-10-12-using-yt-dlp-with-uvx/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="Jonathan B (Alt + H)">Jonathan B</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/posts/" title="Posts">
+                    <span>Posts</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/about/" title="About">
+                    <span>About</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/posts/">Posts</a></div>
+    <h1 class="post-title entry-hint-parent">
+      Using YT-DLP With UVX
+    </h1>
+    <div class="post-meta"><span title='2025-10-12 00:00:00 +0000 UTC'>October 12, 2025</span>&nbsp;·&nbsp;Jonathan B
+
+</div>
+  </header> 
+  <div class="post-content"><h2 id="introduction">Introduction<a hidden class="anchor" aria-hidden="true" href="#introduction">#</a></h2>
+<p>YT‑DLP is a fast, actively maintained command-line tool for downloading audio and video from many sites. I use it to extract audio from videos for offline listening on walks. This post shows a simple, reproducible workflow using UV/UVX so you can run YT‑DLP without installing it system‑wide, plus a small PowerShell helper script to make converting downloads easier.</p>
+<p>What you’ll find here:</p>
+<ul>
+<li>How I run YT‑DLP via UVX</li>
+<li>A ready-to-use PowerShell script</li>
+<li>Prerequisites and quick troubleshooting tips</li>
+</ul>
+<p><strong>Legal/Terms reminder</strong>: only download content you have the right to store or that is permitted by the content provider&rsquo;s terms of service.</p>
+<h2 id="prerequisites">Prerequisites<a hidden class="anchor" aria-hidden="true" href="#prerequisites">#</a></h2>
+<ul>
+<li><a href="https://docs.astral.sh/uv/">UV</a> installed and configured (<code>uvx</code> is an alias for <code>uv tool run</code>)</li>
+<li>Windows with PowerShell 7+ (for the scripts, the UVX commands will work outside of PowerShell)</li>
+<li>FFmpeg binaries available locally (required for audio extraction)</li>
+</ul>
+<h2 id="troubleshooting">Troubleshooting<a hidden class="anchor" aria-hidden="true" href="#troubleshooting">#</a></h2>
+<ul>
+<li><em>uvx not found</em>: ensure UV is installed and <code>uv</code> is on the PATH. <code>uv tool run</code> is equivalent to <code>uvx</code>.</li>
+<li><em>FFmpeg missing</em>: YT‑DLP will fail to extract audio without FFmpeg. Verify the path passed to <code>--ffmpeg-location</code> points to the directory containing <code>ffmpeg.exe</code>.</li>
+<li><em>Permission errors writing files</em>: run PowerShell as a user that can write to the target folder or change the RootFolder to a writeable location.</li>
+<li><em>Network/download failures</em>: try again with <code>--verbose</code> to see error details; some sites require cookies or authentication.</li>
+<li><em>File name collisions</em>: the script writes to the chosen filename; check for existing files.</li>
+<li><em>Reproducibility vs latest</em>: using <code>--no-cache</code> with <code>uvx</code> fetches the latest tool each run (useful for yt-dlp&rsquo;s rapid updates). Remove it for more reproducible runs.</li>
+</ul>
+<h2 id="uvx-commands">UVX Commands<a hidden class="anchor" aria-hidden="true" href="#uvx-commands">#</a></h2>
+<p>These are what I use to extract the audio from videos. You will be able to modify for your needs:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-pwsh" data-lang="pwsh"><span style="display:flex;"><span><span style="color:#75715e"># PowerShell</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Setup some Aliases for this Example</span>
+</span></span><span style="display:flex;"><span>$UrlLink     = <span style="color:#e6db74">&#34;https://www.youtube.com/watch?v=dQw4w9WgXcQ&#34;</span>
+</span></span><span style="display:flex;"><span>$OutFilename = <span style="color:#e6db74">&#34;RickRoll.mp3&#34;</span>
+</span></span><span style="display:flex;"><span>$AudioFormat = <span style="color:#e6db74">&#34;mp3&#34;</span>  
+</span></span><span style="display:flex;"><span>$TempFolder  = <span style="color:#e6db74">&#34;c:\temp\yt-dlp&#34;</span>  <span style="color:#75715e"># My temp store before I copy to Phone/MP3 player</span>
+</span></span><span style="display:flex;"><span>$FFmpegPath  = join-path -path $TempFolder -childpath <span style="color:#e6db74">&#34;ffmpeg-master-latest-win64-gpl\bin&#34;</span>  <span style="color:#75715e"># Required binaries for audio extraction</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>cd $TempFolder  <span style="color:#75715e"># Go to my temp store</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Run YT-DLP via UVX</span>
+</span></span><span style="display:flex;"><span>uvx --no-cache yt-dlp -x --audio-format $AudioFormat --ffmpeg-location $FFmpegPath -o $OutFilename $UrlLink --verbose
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-pwsh" data-lang="pwsh"><span style="display:flex;"><span><span style="color:#75715e"># Command breakdown </span>
+</span></span><span style="display:flex;"><span>uvx --no-cache yt-dlp         <span style="color:#75715e"># Get the latest yt-dlp every time</span>
+</span></span><span style="display:flex;"><span>-x                            <span style="color:#75715e"># Convert video files to audio-only files</span>
+</span></span><span style="display:flex;"><span>                              <span style="color:#75715e"># (Use -k to keep the intermediate video)</span>
+</span></span><span style="display:flex;"><span>--audio-format $AudioFormat   <span style="color:#75715e"># Use the specified audio format </span>
+</span></span><span style="display:flex;"><span>--ffmpeg-location $FFmpegPath <span style="color:#75715e"># Location of FFMPEG binary: exe path or just dir</span>
+</span></span><span style="display:flex;"><span>-o $OutFilename               <span style="color:#75715e"># Output filename</span>
+</span></span><span style="display:flex;"><span>$UrlLink                      <span style="color:#75715e"># URL to video to extract audio from</span>
+</span></span><span style="display:flex;"><span>--verbose                     <span style="color:#75715e"># Optional: print debugging information</span>
+</span></span></code></pre></div><p>The audio extraction requires the FFMPEG binaries which can be <a href="https://github.com/yt-dlp/FFmpeg-Builds">downloaded from here</a>. Simply extract to somewhere convenient.</p>
+<hr>
+<h3 id="making-it-simple-for-me">Making It Simple For Me<a hidden class="anchor" aria-hidden="true" href="#making-it-simple-for-me">#</a></h3>
+<p>As a PowerShell script, e.g., <code>download_yt_audio.ps1</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-pwsh" data-lang="pwsh"><span style="display:flex;"><span><span style="color:#75715e">#Powershell Script: .\download_yt_audio.ps1</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Defaults, change as required</span>
+</span></span><span style="display:flex;"><span>$DefaultRootFolder  = <span style="color:#e6db74">&#34;C:\temp\yt-dlp&#34;</span>
+</span></span><span style="display:flex;"><span>$DefaultAudioFormat = <span style="color:#e6db74">&#34;mp3&#34;</span>  <span style="color:#75715e"># aac, alac, flac, m4a, mp3, opus, vorbis, wav</span>
+</span></span><span style="display:flex;"><span>$DefaultFFmpegPath  = <span style="color:#e6db74">&#34;C:\temp\yt-dlp\ffmpeg-master-latest-win64-gpl\bin&#34;</span>
+</span></span><span style="display:flex;"><span>$DefaultAutoPlay    = $false
+</span></span><span style="display:flex;"><span>$Verbosity          = <span style="color:#e6db74">&#34;--quiet&#34;</span>  <span style="color:#75715e"># Change to &#34;--verbose&#34; for more output</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Check UVX is available on the path</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> (<span style="color:#f92672">-not</span> (Test-Path (get-command uvx.exe).Path)) {
+</span></span><span style="display:flex;"><span>    Write-Host <span style="color:#e6db74">&#34;No uvx.exe found. Check it is available on your path.&#34;</span>
+</span></span><span style="display:flex;"><span>    exit <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Get user inputs or use defaults</span>
+</span></span><span style="display:flex;"><span>$UrlLink = Read-Host <span style="color:#e6db74">&#34;URL/Link of Video&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> (<span style="color:#f92672">-not</span> $UrlLink) { Write-Error <span style="color:#e6db74">&#34;You must provide a URL.&#34;</span>; exit <span style="color:#ae81ff">1</span> }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>[ValidateSet(<span style="color:#e6db74">&#39;aac&#39;</span>, <span style="color:#e6db74">&#39;alac&#39;</span>, <span style="color:#e6db74">&#39;flac&#39;</span>, <span style="color:#e6db74">&#39;m4a&#39;</span>, <span style="color:#e6db74">&#39;mp3&#39;</span>, <span style="color:#e6db74">&#39;opus&#39;</span>, <span style="color:#e6db74">&#39;vorbis&#39;</span>, <span style="color:#e6db74">&#39;wav&#39;</span>, <span style="color:#e6db74">&#39;&#39;</span>)]$AudioFormat = Read-Host <span style="color:#e6db74">&#39;Audio Format (default:&#39;</span> $DefaultAudioFormat<span style="color:#e6db74">&#39;)&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># It&#39;s a coarse error if it fails, but it&#39;s at least a check</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> (<span style="color:#f92672">-not</span> $AudioFormat) { $AudioFormat = $DefaultAudioFormat }  <span style="color:#75715e"># &#39;&#39; option</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$Filename = Read-Host <span style="color:#e6db74">&#34;Output Filename (no extension)&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> (<span style="color:#f92672">-not</span> $Filename) { Write-Error <span style="color:#e6db74">&#34;You must provide an output filename.&#34;</span>; exit <span style="color:#ae81ff">1</span> }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$FFmpegPath = Read-Host <span style="color:#e6db74">&#39;FFMPEG Folder (default:&#39;</span> $DefaultFFmpegPath <span style="color:#e6db74">&#39;)&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> (<span style="color:#f92672">-not</span> $FFmpegPath) { $FFmpegPath = $DefaultFFmpegPath }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Validate ffmpeg path</span>
+</span></span><span style="display:flex;"><span>$FFmpegExePath = Join-Path -Path $FFmpegPath -ChildPath <span style="color:#e6db74">&#34;ffmpeg.exe&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> (<span style="color:#f92672">-not</span> (Test-Path -Path $FFmpegExePath)) {
+</span></span><span style="display:flex;"><span>    Write-Warning <span style="color:#e6db74">&#34;FFmpeg executable not found at: </span>$FFmpegExePath<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>    exit <span style="color:#ae81ff">1</span>  <span style="color:#75715e"># Alternatively ask user to get the path correct</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$RootFolder = Read-Host <span style="color:#e6db74">&#39;Root Folder (default:&#39;</span> $DefaultRootFolder <span style="color:#e6db74">&#39;)&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> (<span style="color:#f92672">-not</span> $RootFolder) { $RootFolder = $DefaultRootFolder }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Ensure root folder exists</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> (<span style="color:#f92672">-not</span> (Test-Path -Path $RootFolder)) {
+</span></span><span style="display:flex;"><span>    Write-Host <span style="color:#e6db74">&#34;Creating </span>$RootFolder<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>    New-Item -Path $RootFolder -ItemType Directory -Force | Out-Null
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$AutoPlay = Read-Host <span style="color:#e6db74">&#39;AutoPlay Audio after Extraction? (default off)&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> (<span style="color:#f92672">-not</span>($AutoPlay)) { $AutoPlay = $DefaultAutoPlay}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$OutFilename = <span style="color:#e6db74">&#34;</span>$Filename<span style="color:#e6db74">.</span>$AudioFormat<span style="color:#e6db74">&#34;</span>  <span style="color:#75715e"># Append format as extension</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Set-Location -Path $RootFolder  <span style="color:#75715e"># Go to root folder</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># UVX args: use --no-cache to fetch latest yt-dlp version each time</span>
+</span></span><span style="display:flex;"><span>$uvxArgs = @(<span style="color:#e6db74">&#34;--no-cache&#34;</span>,
+</span></span><span style="display:flex;"><span>             <span style="color:#e6db74">&#34;yt-dlp&#34;</span>,
+</span></span><span style="display:flex;"><span>             <span style="color:#e6db74">&#34;-x&#34;</span>,
+</span></span><span style="display:flex;"><span>             <span style="color:#e6db74">&#34;--audio-format&#34;</span>, $AudioFormat,
+</span></span><span style="display:flex;"><span>             <span style="color:#e6db74">&#34;--ffmpeg-location&#34;</span>, $FFmpegPath,
+</span></span><span style="display:flex;"><span>             <span style="color:#e6db74">&#34;-o&#34;</span>, $OutFilename,
+</span></span><span style="display:flex;"><span>             $UrlLink,
+</span></span><span style="display:flex;"><span>             $Verbosity
+</span></span><span style="display:flex;"><span>             )
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Write-Host <span style="color:#e6db74">&#34;Running: uvx </span>$($uvxArgs -join <span style="color:#e6db74">&#39; &#39;</span>)<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>&amp; uvx @uvxArgs
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Let UV handle errors</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Optionally play the downloaded audio</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> ($AutoPlay) {
+</span></span><span style="display:flex;"><span>    $OutfilePath = Join-Path -Path $RootFolder -ChildPath $OutFilename
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (Test-Path $OutfilePath) {
+</span></span><span style="display:flex;"><span>        Start-Process -FilePath $OutfilePath
+</span></span><span style="display:flex;"><span>    } <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>        Write-Warning <span style="color:#e6db74">&#34;Downloaded file not found: </span>$OutfilePath<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># End of Script</span>
+</span></span></code></pre></div>
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="http://localhost:1313/tags/uv/">UV</a></li>
+      <li><a href="http://localhost:1313/tags/uvx/">UVX</a></li>
+      <li><a href="http://localhost:1313/tags/yt-dlp/">Yt-Dlp</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="next" href="http://localhost:1313/posts/2025-08-29-vscode-terminal-does-not-match-the-windows-path-environment/">
+    <span class="title">Next »</span>
+    <br>
+    <span>VSCode Terminal Does Not Match the Windows System PATH</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2025 <a href="http://localhost:1313/">Jonathan B</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+
+
+</body>
+
+</html>

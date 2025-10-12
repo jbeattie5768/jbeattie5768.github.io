@@ -2,73 +2,82 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://jbeattie5768.github.io/posts/</loc>
-    <lastmod>2025-08-30T00:00:00+00:00</lastmod>
+    <loc>http://localhost:1313/posts/</loc>
+    <lastmod>2025-10-12T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://jbeattie5768.github.io/</loc>
-    <lastmod>2025-08-30T00:00:00+00:00</lastmod>
+    <loc>http://localhost:1313/</loc>
+    <lastmod>2025-10-12T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://jbeattie5768.github.io/tags/config/</loc>
+    <loc>http://localhost:1313/tags/</loc>
+    <lastmod>2025-10-12T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/2025-10-12-using-yt-dlp-with-uvx/</loc>
+    <lastmod>2025-10-12T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/uv/</loc>
+    <lastmod>2025-10-12T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/uvx/</loc>
+    <lastmod>2025-10-12T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/yt-dlp/</loc>
+    <lastmod>2025-10-12T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/config/</loc>
     <lastmod>2025-08-29T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://jbeattie5768.github.io/tags/</loc>
+    <loc>http://localhost:1313/tags/settings/</loc>
     <lastmod>2025-08-29T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://jbeattie5768.github.io/tags/settings/</loc>
+    <loc>http://localhost:1313/tags/terminal/</loc>
     <lastmod>2025-08-29T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://jbeattie5768.github.io/tags/terminal/</loc>
+    <loc>http://localhost:1313/tags/vscode/</loc>
     <lastmod>2025-08-29T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://jbeattie5768.github.io/tags/vscode/</loc>
+    <loc>http://localhost:1313/posts/2025-08-29-vscode-terminal-does-not-match-the-windows-path-environment/</loc>
     <lastmod>2025-08-29T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://jbeattie5768.github.io/posts/2025-08-29-vscode-terminal-does-not-match-the-windows-path-environment/</loc>
-    <lastmod>2025-08-29T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://jbeattie5768.github.io/tags/pep-514/</loc>
+    <loc>http://localhost:1313/tags/pep-514/</loc>
     <lastmod>2025-08-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://jbeattie5768.github.io/tags/python/</loc>
+    <loc>http://localhost:1313/tags/python/</loc>
     <lastmod>2025-08-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://jbeattie5768.github.io/posts/2025-08-01-accessing-the-windows-registry-with-python/</loc>
+    <loc>http://localhost:1313/posts/2025-08-01-accessing-the-windows-registry-with-python/</loc>
     <lastmod>2025-08-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://jbeattie5768.github.io/tags/windows-registry/</loc>
+    <loc>http://localhost:1313/tags/windows-registry/</loc>
     <lastmod>2025-08-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://jbeattie5768.github.io/tags/winreg/</loc>
+    <loc>http://localhost:1313/tags/winreg/</loc>
     <lastmod>2025-08-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://jbeattie5768.github.io/posts/2025-07-27-modernizing-python-development-my-switch-to-uv/</loc>
+    <loc>http://localhost:1313/posts/2025-07-27-modernizing-python-development-my-switch-to-uv/</loc>
     <lastmod>2025-07-27T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://jbeattie5768.github.io/tags/tools/</loc>
+    <loc>http://localhost:1313/tags/tools/</loc>
     <lastmod>2025-07-27T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://jbeattie5768.github.io/tags/uv/</loc>
-    <lastmod>2025-07-27T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://jbeattie5768.github.io/posts/2025-07-18-using-ruff-to-improve-python-development/</loc>
+    <loc>http://localhost:1313/posts/2025-07-18-using-ruff-to-improve-python-development/</loc>
     <lastmod>2025-07-18T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://jbeattie5768.github.io/tags/ruff/</loc>
+    <loc>http://localhost:1313/tags/ruff/</loc>
     <lastmod>2025-07-18T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://jbeattie5768.github.io/tags/post/</loc>
+    <loc>http://localhost:1313/tags/post/</loc>
     <lastmod>2025-07-12T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://jbeattie5768.github.io/tags/test/</loc>
+    <loc>http://localhost:1313/tags/test/</loc>
     <lastmod>2025-07-12T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://jbeattie5768.github.io/posts/2025-07-12-test-post/</loc>
+    <loc>http://localhost:1313/posts/2025-07-12-test-post/</loc>
     <lastmod>2025-07-12T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://jbeattie5768.github.io/about/</loc>
+    <loc>http://localhost:1313/about/</loc>
   </url><url>
-    <loc>https://jbeattie5768.github.io/categories/</loc>
+    <loc>http://localhost:1313/categories/</loc>
   </url><url>
-    <loc>https://jbeattie5768.github.io/search/</loc>
+    <loc>http://localhost:1313/search/</loc>
   </url>
 </urlset>

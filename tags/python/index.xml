@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Python on Jonathan B</title>
-    <link>https://jbeattie5768.github.io/tags/python/</link>
+    <link>http://localhost:1313/tags/python/</link>
     <description>Recent content in Python on Jonathan B</description>
     <generator>Hugo -- 0.147.9</generator>
     <language>en-gb</language>
     <lastBuildDate>Fri, 01 Aug 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://jbeattie5768.github.io/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/python/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Reading the Windows Registry with Python: A Case Study Using WinReg</title>
-      <link>https://jbeattie5768.github.io/posts/2025-08-01-accessing-the-windows-registry-with-python/</link>
+      <link>http://localhost:1313/posts/2025-08-01-accessing-the-windows-registry-with-python/</link>
       <pubDate>Fri, 01 Aug 2025 00:00:00 +0000</pubDate>
-      <guid>https://jbeattie5768.github.io/posts/2025-08-01-accessing-the-windows-registry-with-python/</guid>
+      <guid>http://localhost:1313/posts/2025-08-01-accessing-the-windows-registry-with-python/</guid>
       <description>&lt;hr&gt;
 &lt;h2 id=&#34;table-of-contents&#34;&gt;Table of Contents&lt;/h2&gt;
 &lt;ul&gt;
@@ -66,9 +66,9 @@
     </item>
     <item>
       <title>Modernizing Python Development: My Switch to UV</title>
-      <link>https://jbeattie5768.github.io/posts/2025-07-27-modernizing-python-development-my-switch-to-uv/</link>
+      <link>http://localhost:1313/posts/2025-07-27-modernizing-python-development-my-switch-to-uv/</link>
       <pubDate>Sun, 27 Jul 2025 00:00:00 +0000</pubDate>
-      <guid>https://jbeattie5768.github.io/posts/2025-07-27-modernizing-python-development-my-switch-to-uv/</guid>
+      <guid>http://localhost:1313/posts/2025-07-27-modernizing-python-development-my-switch-to-uv/</guid>
       <description>&lt;hr&gt;
 &lt;h2 id=&#34;introduction-&#34;&gt;Introduction 🚀&lt;/h2&gt;
 &lt;p&gt;Python development is evolving rapidly, and &lt;a href=&#34;https://docs.astral.sh/uv/&#34;&gt;UV&lt;/a&gt; is at the forefront of this transformation. In this post, I wanted to document my experience switching to UV, why and I how I&amp;rsquo;ve started the move to a modern workflow.&lt;/p&gt;
@@ -79,9 +79,9 @@
     </item>
     <item>
       <title>Modernizing Python Development: Linting and Formatting with Ruff</title>
-      <link>https://jbeattie5768.github.io/posts/2025-07-18-using-ruff-to-improve-python-development/</link>
+      <link>http://localhost:1313/posts/2025-07-18-using-ruff-to-improve-python-development/</link>
       <pubDate>Fri, 18 Jul 2025 00:00:00 +0000</pubDate>
-      <guid>https://jbeattie5768.github.io/posts/2025-07-18-using-ruff-to-improve-python-development/</guid>
+      <guid>http://localhost:1313/posts/2025-07-18-using-ruff-to-improve-python-development/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://github.com/astral-sh/ruff&#34;&gt;&lt;img alt=&#34;Ruff&#34; loading=&#34;lazy&#34; src=&#34;https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json&#34;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#introduction&#34;&gt;Introduction&lt;/a&gt;&lt;/li&gt;

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Windows on Jonathan B</title>
+    <link>http://localhost:1313/tags/windows/</link>
+    <description>Recent content in Windows on Jonathan B</description>
+    <generator>Hugo -- 0.147.9</generator>
+    <language>en-gb</language>
+    <lastBuildDate>Sat, 30 Aug 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/windows/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Dotfiles-Notes</title>
+      <link>http://localhost:1313/posts/dotfiles-notes/</link>
+      <pubDate>Sat, 30 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/dotfiles-notes/</guid>
+      <description>&lt;hr&gt;
+&lt;p&gt;Dotfiles&lt;/p&gt;
+&lt;p&gt;Rename my GitHub repo&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://dotfiles.github.io/inspiration&#34;&gt;Inspiration&lt;/a&gt;
+&lt;a href=&#34;https://github.com/topics/dotfiles&#34;&gt;GitHub Topic: Dotfiles&lt;/a&gt;
+High level folders with a few catch-all folders&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

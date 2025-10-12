@@ -2,19 +2,34 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Jonathan B</title>
-    <link>https://jbeattie5768.github.io/</link>
+    <link>http://localhost:1313/</link>
     <description>Recent content on Jonathan B</description>
     <generator>Hugo -- 0.147.9</generator>
     <language>en-gb</language>
-    <lastBuildDate>Fri, 29 Aug 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://jbeattie5768.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 12 Oct 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Using YT-DLP With UVX</title>
+      <link>http://localhost:1313/posts/2025-10-12-using-yt-dlp-with-uvx/</link>
+      <pubDate>Sun, 12 Oct 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/2025-10-12-using-yt-dlp-with-uvx/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;YT‑DLP is a fast, actively maintained command-line tool for downloading audio and video from many sites. I use it to extract audio from videos for offline listening on walks. This post shows a simple, reproducible workflow using UV/UVX so you can run YT‑DLP without installing it system‑wide, plus a small PowerShell helper script to make converting downloads easier.&lt;/p&gt;
+&lt;p&gt;What you’ll find here:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;How I run YT‑DLP via UVX&lt;/li&gt;
+&lt;li&gt;A ready-to-use PowerShell script&lt;/li&gt;
+&lt;li&gt;Prerequisites and quick troubleshooting tips&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Legal/Terms reminder&lt;/strong&gt;: only download content you have the right to store or that is permitted by the content provider&amp;rsquo;s terms of service.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>VSCode Terminal Does Not Match the Windows System PATH</title>
-      <link>https://jbeattie5768.github.io/posts/2025-08-29-vscode-terminal-does-not-match-the-windows-path-environment/</link>
+      <link>http://localhost:1313/posts/2025-08-29-vscode-terminal-does-not-match-the-windows-path-environment/</link>
       <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
-      <guid>https://jbeattie5768.github.io/posts/2025-08-29-vscode-terminal-does-not-match-the-windows-path-environment/</guid>
+      <guid>http://localhost:1313/posts/2025-08-29-vscode-terminal-does-not-match-the-windows-path-environment/</guid>
       <description>&lt;p&gt;If your Windows &lt;em&gt;PATH&lt;/em&gt; environment variable in your VSCode terminal does not match the one in your terminal outside of VSCode, it&amp;rsquo;s probably this setting in VSCode:&lt;/p&gt;
-&lt;p&gt;&lt;img alt=&#34;Setting&#34; loading=&#34;lazy&#34; src=&#34;https://jbeattie5768.github.io/posts/2025-08-29-vscode-terminal-does-not-match-the-windows-path-environment/images/2025-07-18-path-04.jpg&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;Setting&#34; loading=&#34;lazy&#34; src=&#34;http://localhost:1313/posts/2025-08-29-vscode-terminal-does-not-match-the-windows-path-environment/images/2025-07-18-path-04.jpg&#34;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;&lt;strong&gt;terminal.integrated.enablePersistentSessions&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;Uncheck this or set it to be &lt;em&gt;false&lt;/em&gt;, and restart VScode and all should be right.&lt;/p&gt;
 &lt;p&gt;By default, this option persists your terminal sessions across reloads (&lt;a href=&#34;https://code.visualstudio.com/docs/terminal/advanced&#34;&gt;VSCode &lt;strong&gt;Terminal&lt;/strong&gt; Advanced Docs&lt;/a&gt;).&lt;br&gt;
@@ -22,9 +37,9 @@ That might be handy, so re-enabling it afterwards would be okay if you really wa
     </item>
     <item>
       <title>Reading the Windows Registry with Python: A Case Study Using WinReg</title>
-      <link>https://jbeattie5768.github.io/posts/2025-08-01-accessing-the-windows-registry-with-python/</link>
+      <link>http://localhost:1313/posts/2025-08-01-accessing-the-windows-registry-with-python/</link>
       <pubDate>Fri, 01 Aug 2025 00:00:00 +0000</pubDate>
-      <guid>https://jbeattie5768.github.io/posts/2025-08-01-accessing-the-windows-registry-with-python/</guid>
+      <guid>http://localhost:1313/posts/2025-08-01-accessing-the-windows-registry-with-python/</guid>
       <description>&lt;hr&gt;
 &lt;h2 id=&#34;table-of-contents&#34;&gt;Table of Contents&lt;/h2&gt;
 &lt;ul&gt;
@@ -78,9 +93,9 @@ That might be handy, so re-enabling it afterwards would be okay if you really wa
     </item>
     <item>
       <title>Modernizing Python Development: My Switch to UV</title>
-      <link>https://jbeattie5768.github.io/posts/2025-07-27-modernizing-python-development-my-switch-to-uv/</link>
+      <link>http://localhost:1313/posts/2025-07-27-modernizing-python-development-my-switch-to-uv/</link>
       <pubDate>Sun, 27 Jul 2025 00:00:00 +0000</pubDate>
-      <guid>https://jbeattie5768.github.io/posts/2025-07-27-modernizing-python-development-my-switch-to-uv/</guid>
+      <guid>http://localhost:1313/posts/2025-07-27-modernizing-python-development-my-switch-to-uv/</guid>
       <description>&lt;hr&gt;
 &lt;h2 id=&#34;introduction-&#34;&gt;Introduction 🚀&lt;/h2&gt;
 &lt;p&gt;Python development is evolving rapidly, and &lt;a href=&#34;https://docs.astral.sh/uv/&#34;&gt;UV&lt;/a&gt; is at the forefront of this transformation. In this post, I wanted to document my experience switching to UV, why and I how I&amp;rsquo;ve started the move to a modern workflow.&lt;/p&gt;
@@ -91,9 +106,9 @@ That might be handy, so re-enabling it afterwards would be okay if you really wa
     </item>
     <item>
       <title>Modernizing Python Development: Linting and Formatting with Ruff</title>
-      <link>https://jbeattie5768.github.io/posts/2025-07-18-using-ruff-to-improve-python-development/</link>
+      <link>http://localhost:1313/posts/2025-07-18-using-ruff-to-improve-python-development/</link>
       <pubDate>Fri, 18 Jul 2025 00:00:00 +0000</pubDate>
-      <guid>https://jbeattie5768.github.io/posts/2025-07-18-using-ruff-to-improve-python-development/</guid>
+      <guid>http://localhost:1313/posts/2025-07-18-using-ruff-to-improve-python-development/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://github.com/astral-sh/ruff&#34;&gt;&lt;img alt=&#34;Ruff&#34; loading=&#34;lazy&#34; src=&#34;https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json&#34;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#introduction&#34;&gt;Introduction&lt;/a&gt;&lt;/li&gt;
@@ -140,18 +155,18 @@ That might be handy, so re-enabling it afterwards would be okay if you really wa
     </item>
     <item>
       <title>Test Post</title>
-      <link>https://jbeattie5768.github.io/posts/2025-07-12-test-post/</link>
+      <link>http://localhost:1313/posts/2025-07-12-test-post/</link>
       <pubDate>Sat, 12 Jul 2025 00:00:00 +0000</pubDate>
-      <guid>https://jbeattie5768.github.io/posts/2025-07-12-test-post/</guid>
+      <guid>http://localhost:1313/posts/2025-07-12-test-post/</guid>
       <description>&lt;p&gt;This is a test post to my Github Pages.&lt;/p&gt;
 &lt;p&gt;Example Image should be here:
-&lt;img alt=&#34;Image Alternative Text&#34; loading=&#34;lazy&#34; src=&#34;https://jbeattie5768.github.io/posts/2025-07-12-test-post/pexels-caroline-mourer-517639631-32507137.jpg&#34;&gt;&lt;/p&gt;</description>
+&lt;img alt=&#34;Image Alternative Text&#34; loading=&#34;lazy&#34; src=&#34;http://localhost:1313/posts/2025-07-12-test-post/pexels-caroline-mourer-517639631-32507137.jpg&#34;&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>About</title>
-      <link>https://jbeattie5768.github.io/about/</link>
+      <link>http://localhost:1313/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://jbeattie5768.github.io/about/</guid>
+      <guid>http://localhost:1313/about/</guid>
       <description>&lt;p&gt;I sometimes update the blog.&lt;/p&gt;
 &lt;p&gt;Contact: &lt;a href=&#34;mailto:jbeattie5768@gmail.com&#34;&gt;jbeattie5768@gmail.com&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Website info: &lt;br&gt;

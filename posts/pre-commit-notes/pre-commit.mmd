@@ -1,0 +1,12 @@
+%% Pre-Commit Checks
+flowchart LR
+    A@{ shape: docs, label: "Code Edits"} --> |git add| B(Staging)
+    B --> |git commit| C[Linter]
+
+    subgraph "Pre-Commit Checks"
+        C[Linter] --> D[Formatter]
+    end
+
+    D --> E{Checks<br/>Passed?}
+    E --> |No: repeat| A
+    E --> |Yes| F[Commit<br/>Successful]
