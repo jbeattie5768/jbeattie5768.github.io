@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>REPL on Jonathan B</title>
+    <link>https://jbeattie5768.github.io/tags/repl/</link>
+    <description>Recent content in REPL on Jonathan B</description>
+    <generator>Hugo -- 0.147.9</generator>
+    <language>en-gb</language>
+    <lastBuildDate>Mon, 27 Oct 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://jbeattie5768.github.io/tags/repl/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Using the New PyREPL in VSCode</title>
+      <link>https://jbeattie5768.github.io/posts/2025-10-27-issues-using-the-new-python-repl-in-vscode/</link>
+      <pubDate>Mon, 27 Oct 2025 00:00:00 +0000</pubDate>
+      <guid>https://jbeattie5768.github.io/posts/2025-10-27-issues-using-the-new-python-repl-in-vscode/</guid>
+      <description>&lt;h2 id=&#34;the-pyrepl&#34;&gt;The PyREPL&lt;/h2&gt;
+&lt;p&gt;I use the REPL all the time and I&amp;rsquo;m enjoying the new PyREPL.&lt;br&gt;
+If you haven&amp;rsquo;t yet moved to Python 3.14, you should - PyREPL is another compelling reason to update.&lt;/p&gt;
+&lt;p&gt;The new PyREPL has been available since Python 3.13, and replaces the original C-based REPL with a Python-based implementation (PyREPL). You can read about the PyREPL in &lt;a href=&#34;https://peps.python.org/pep-0762/&#34;&gt;&amp;lsquo;PEP 762 – REPL-acing the default REPL&amp;rsquo;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Key benefits of the new PyREPL:&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

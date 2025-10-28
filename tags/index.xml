@@ -6,8 +6,36 @@
     <description>Recent content in My Custom Tags Title on Jonathan B</description>
     <generator>Hugo -- 0.147.9</generator>
     <language>en-gb</language>
-    <lastBuildDate>Sun, 12 Oct 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 27 Oct 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://jbeattie5768.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Issue</title>
+      <link>https://jbeattie5768.github.io/tags/issue/</link>
+      <pubDate>Mon, 27 Oct 2025 00:00:00 +0000</pubDate>
+      <guid>https://jbeattie5768.github.io/tags/issue/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Python</title>
+      <link>https://jbeattie5768.github.io/tags/python/</link>
+      <pubDate>Mon, 27 Oct 2025 00:00:00 +0000</pubDate>
+      <guid>https://jbeattie5768.github.io/tags/python/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>REPL</title>
+      <link>https://jbeattie5768.github.io/tags/repl/</link>
+      <pubDate>Mon, 27 Oct 2025 00:00:00 +0000</pubDate>
+      <guid>https://jbeattie5768.github.io/tags/repl/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>VSCode</title>
+      <link>https://jbeattie5768.github.io/tags/vscode/</link>
+      <pubDate>Mon, 27 Oct 2025 00:00:00 +0000</pubDate>
+      <guid>https://jbeattie5768.github.io/tags/vscode/</guid>
+      <description></description>
+    </item>
     <item>
       <title>UV</title>
       <link>https://jbeattie5768.github.io/tags/uv/</link>
@@ -51,24 +79,10 @@
       <description></description>
     </item>
     <item>
-      <title>VSCode</title>
-      <link>https://jbeattie5768.github.io/tags/vscode/</link>
-      <pubDate>Fri, 29 Aug 2025 00:00:00 +0000</pubDate>
-      <guid>https://jbeattie5768.github.io/tags/vscode/</guid>
-      <description></description>
-    </item>
-    <item>
       <title>PEP 514</title>
       <link>https://jbeattie5768.github.io/tags/pep-514/</link>
       <pubDate>Fri, 01 Aug 2025 00:00:00 +0000</pubDate>
       <guid>https://jbeattie5768.github.io/tags/pep-514/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Python</title>
-      <link>https://jbeattie5768.github.io/tags/python/</link>
-      <pubDate>Fri, 01 Aug 2025 00:00:00 +0000</pubDate>
-      <guid>https://jbeattie5768.github.io/tags/python/</guid>
       <description></description>
     </item>
     <item>
