@@ -13,13 +13,14 @@
       <link>https://jbeattie5768.github.io/posts/2025-10-12-using-yt-dlp-with-uvx/</link>
       <pubDate>Sun, 12 Oct 2025 00:00:00 +0000</pubDate>
       <guid>https://jbeattie5768.github.io/posts/2025-10-12-using-yt-dlp-with-uvx/</guid>
-      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
+      <description>&lt;p&gt;&lt;img alt=&#34;alt text&#34; loading=&#34;lazy&#34; src=&#34;https://jbeattie5768.github.io/posts/2025-10-12-using-yt-dlp-with-uvx/yt_dlp_to_mp3_02.webp&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;YT‑DLP is a fast, actively maintained command-line tool for downloading audio and video from many sites. I use it to extract audio from videos for offline listening on walks. This post shows a simple, reproducible workflow using UV/UVX so you can run YT‑DLP without installing it system‑wide, plus a small PowerShell helper script to make converting downloads easier.&lt;/p&gt;
 &lt;p&gt;What you’ll find here:&lt;/p&gt;
 &lt;ul&gt;
+&lt;li&gt;Prerequisites and quick troubleshooting tips&lt;/li&gt;
 &lt;li&gt;How I run YT‑DLP via UVX&lt;/li&gt;
 &lt;li&gt;A ready-to-use PowerShell script&lt;/li&gt;
-&lt;li&gt;Prerequisites and quick troubleshooting tips&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;&lt;strong&gt;Legal/Terms reminder&lt;/strong&gt;: only download content you have the right to store or that is permitted by the content provider&amp;rsquo;s terms of service.&lt;/p&gt;</description>
     </item>

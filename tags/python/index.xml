@@ -13,11 +13,17 @@
       <link>https://jbeattie5768.github.io/posts/2025-10-27-issues-using-the-new-python-repl-in-vscode/</link>
       <pubDate>Mon, 27 Oct 2025 00:00:00 +0000</pubDate>
       <guid>https://jbeattie5768.github.io/posts/2025-10-27-issues-using-the-new-python-repl-in-vscode/</guid>
-      <description>&lt;h2 id=&#34;the-pyrepl&#34;&gt;The PyREPL&lt;/h2&gt;
+      <description>&lt;figure&gt;
+    &lt;img loading=&#34;lazy&#34; src=&#34;VSCode_PyREPL_Example.webp&#34;
+         alt=&#34;PyREPL example in VSCode showing various coloured examples&#34;/&gt; &lt;figcaption&gt;
+            &lt;p&gt;PyREPL in VSCode is Possible&lt;/p&gt;
+        &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;h2 id=&#34;the-pyrepl&#34;&gt;The PyREPL&lt;/h2&gt;
 &lt;p&gt;I use the REPL all the time and I&amp;rsquo;m enjoying the new PyREPL.&lt;br&gt;
 If you haven&amp;rsquo;t yet moved to Python 3.14, you should - PyREPL is another compelling reason to update.&lt;/p&gt;
-&lt;p&gt;The new PyREPL has been available since Python 3.13, and replaces the original C-based REPL with a Python-based implementation (PyREPL). You can read about the PyREPL in &lt;a href=&#34;https://peps.python.org/pep-0762/&#34;&gt;&amp;lsquo;PEP 762 – REPL-acing the default REPL&amp;rsquo;&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Key benefits of the new PyREPL:&lt;/p&gt;</description>
+&lt;p&gt;The new PyREPL has been available since Python 3.13, and replaces the original C-based REPL with a Python-based implementation (PyREPL). You can read about the PyREPL in &lt;a href=&#34;https://peps.python.org/pep-0762/&#34;&gt;&amp;lsquo;PEP 762 – REPL-acing the default REPL&amp;rsquo;&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Reading the Windows Registry with Python: A Case Study Using WinReg</title>
@@ -81,12 +87,137 @@ If you haven&amp;rsquo;t yet moved to Python 3.14, you should - PyREPL is anothe
       <pubDate>Sun, 27 Jul 2025 00:00:00 +0000</pubDate>
       <guid>https://jbeattie5768.github.io/posts/2025-07-27-modernizing-python-development-my-switch-to-uv/</guid>
       <description>&lt;hr&gt;
-&lt;h2 id=&#34;introduction-&#34;&gt;Introduction 🚀&lt;/h2&gt;
-&lt;p&gt;Python development is evolving rapidly, and &lt;a href=&#34;https://docs.astral.sh/uv/&#34;&gt;UV&lt;/a&gt; is at the forefront of this transformation. In this post, I wanted to document my experience switching to UV, why and I how I&amp;rsquo;ve started the move to a modern workflow.&lt;/p&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;main-content&#34;&gt;Main Content&lt;/h2&gt;
-&lt;h3 id=&#34;why-now-&#34;&gt;Why Now? ⏰&lt;/h3&gt;
-&lt;p&gt;The Python ecosystem is changing, and UV is a major addition to the modern toolkit. With a new Windows 11 laptop and a growing appreciation for PowerShell 7, it was the perfect opportunity to embrace UV and other up-to-date tools. Astral, the company behind UV and Ruff, has made cross-platform support seamless, and their documentation is clear for all major operating systems, but I will focus on WIndows.&lt;/p&gt;</description>
+&lt;h3 id=&#34;summary-of-common-uv-commands&#34;&gt;Summary of Common UV Commands&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-pwsh&#34; data-lang=&#34;pwsh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Install UV - multiple options available&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;######################################################&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Windows&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;powershell -ExecutionPolicy ByPass -c &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;irm &amp;lt;https://astral.sh/uv/install.ps1&amp;gt; | iex&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;winget install --id=astral-sh.uv  -e
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Linux/macOS&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;curl -LsSf &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;https://astral.sh/uv/install.sh&amp;#34;&lt;/span&gt; | less
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;brew install uv
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Python&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;pipx install uv  &lt;span style=&#34;color:#75715e&#34;&gt;# alternative is pip&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;uv --version    &lt;span style=&#34;color:#75715e&#34;&gt;# or &amp;#39;uv self version&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;uv --help       &lt;span style=&#34;color:#75715e&#34;&gt;# --help can be used with all commands&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;uv self update  &lt;span style=&#34;color:#75715e&#34;&gt;# Update UV itself&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Install and Manage Python&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;######################################################&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;uv python install             &lt;span style=&#34;color:#75715e&#34;&gt;# Install latest Python version&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;uv python install &lt;span style=&#34;color:#ae81ff&#34;&gt;3.10&lt;/span&gt;.5      &lt;span style=&#34;color:#75715e&#34;&gt;# Install specific Python version&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;uv python install --default   &lt;span style=&#34;color:#75715e&#34;&gt;# Add python.exe to $HOME\.local\bin\&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;uv python install --reinstall &lt;span style=&#34;color:#75715e&#34;&gt;# Reinstall uv-managed Python versions&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;uv python list                     &lt;span style=&#34;color:#75715e&#34;&gt;# List available Python versions&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;uv python list --managed-python    &lt;span style=&#34;color:#75715e&#34;&gt;# Only list managed Python versions&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;uv python list --no-managed-python &lt;span style=&#34;color:#75715e&#34;&gt;# Only list system Python versions&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;uv python upgrade &lt;span style=&#34;color:#ae81ff&#34;&gt;3.14&lt;/span&gt;        &lt;span style=&#34;color:#75715e&#34;&gt;# Install the latest patch version&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;uv python uninstall &lt;span style=&#34;color:#ae81ff&#34;&gt;3.10&lt;/span&gt;.5    &lt;span style=&#34;color:#75715e&#34;&gt;# Uninstall version&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;uv python find &lt;span style=&#34;color:#ae81ff&#34;&gt;3.14&lt;/span&gt;           &lt;span style=&#34;color:#75715e&#34;&gt;# Show path for a specific python.exe&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;uv run where &amp;lt;exe_name&amp;gt;       &lt;span style=&#34;color:#75715e&#34;&gt;# Show path(s) of all &amp;lt;exe_name&amp;gt;.exe&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;uv python pin &lt;span style=&#34;color:#ae81ff&#34;&gt;3.14&lt;/span&gt;  &lt;span style=&#34;color:#75715e&#34;&gt;# Use a specific version in the _current directory_&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                    &lt;span style=&#34;color:#75715e&#34;&gt;# Creates a .python-version file&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Run Python&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;######################################################&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;uv run python                   &lt;span style=&#34;color:#75715e&#34;&gt;# REPL with default version&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;uv run &amp;lt;script&amp;gt;.py              &lt;span style=&#34;color:#75715e&#34;&gt;# Default version&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;uv run -p &lt;span style=&#34;color:#ae81ff&#34;&gt;3.14&lt;/span&gt; &amp;lt;script&amp;gt;.py      &lt;span style=&#34;color:#75715e&#34;&gt;# Specific version, --python alias&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;uv run python [&lt;span style=&#34;color:#66d9ef&#34;&gt;py_option&lt;/span&gt;]       &lt;span style=&#34;color:#75715e&#34;&gt;# Standard Python cmd options&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;uv run --with &amp;lt;pkg&amp;gt; &amp;lt;script&amp;gt;.py &lt;span style=&#34;color:#75715e&#34;&gt;# Include dependency package&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                                &lt;span style=&#34;color:#75715e&#34;&gt;# Multiple --with allowed&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Can use UVX, but take care when trying to run pytest, mypy, etc&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;uvx python@3.14 &amp;lt;script&amp;gt;.py   &lt;span style=&#34;color:#75715e&#34;&gt;# Specific version&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Create Virtual Environment (Venv)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;######################################################&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;uv venv                 &lt;span style=&#34;color:#75715e&#34;&gt;# Use the default Python version&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;uv venv &amp;lt;venv_name&amp;gt;     &lt;span style=&#34;color:#75715e&#34;&gt;# Specify the Venv name&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;uv venv --python &lt;span style=&#34;color:#ae81ff&#34;&gt;3.14&lt;/span&gt;   &lt;span style=&#34;color:#75715e&#34;&gt;# Specify the Python version for the Venv&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;uv venv --seed          &lt;span style=&#34;color:#75715e&#34;&gt;# Add the PiP module to the Venv&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Activate Venus&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;.venv\Scripts\activate    &lt;span style=&#34;color:#75715e&#34;&gt;# PowerShell&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;source .venv/bin/activate  &lt;span style=&#34;color:#75715e&#34;&gt;# Linux/macOS&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;deactivate
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Add Dependencies - normally into current venv&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;######################################################&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;uv add &amp;lt;pkg1,...&amp;gt;     &lt;span style=&#34;color:#75715e&#34;&gt;# Add one or more dependencies to the project&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                      &lt;span style=&#34;color:#75715e&#34;&gt;# Version Specifiers allowed, e.g. rich&amp;gt;13.9.1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;uv add -r requirements.txt  &lt;span style=&#34;color:#75715e&#34;&gt;# Add all in the given `requirements.txt`&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;uv remove &amp;lt;pkg1,...&amp;gt;        &lt;span style=&#34;color:#75715e&#34;&gt;# Remove dependencies from the project&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Requires &amp;#39;pyproject.toml&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;uv tree                       &lt;span style=&#34;color:#75715e&#34;&gt;# View the dependency tree&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;uv tree --outdated --depth &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;  &lt;span style=&#34;color:#75715e&#34;&gt;# View latest available versions&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;uv sync               &lt;span style=&#34;color:#75715e&#34;&gt;# Sync environment from uv.lock&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;uv lock               &lt;span style=&#34;color:#75715e&#34;&gt;# Create uv.lock (happens automatically anyway)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;uv sync ---upgrade    &lt;span style=&#34;color:#75715e&#34;&gt;# Edit pyproject.toml to change package version, then...&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# &amp;#39;pyproject.toml&amp;#39; [dependency-groups]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;uv add --dev &amp;lt;pkg1,...&amp;gt;            &lt;span style=&#34;color:#75715e&#34;&gt;# Add to the development group&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;uv add --group test &amp;lt;testpkg&amp;gt;      &lt;span style=&#34;color:#75715e&#34;&gt;# Add to user named `test` group&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;uv add &amp;lt;azurepkg&amp;gt; --optional azure &lt;span style=&#34;color:#75715e&#34;&gt;# Add Optional to &amp;#39;azure&amp;#39; group&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                      &lt;span style=&#34;color:#75715e&#34;&gt;# Remove is the same ordering,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                      &lt;span style=&#34;color:#75715e&#34;&gt;# e.g. &amp;#34;uv remove --dev tox coverage&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Manage Python packages with a pip-compatible interface&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;######################################################&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;uv pip list                   &lt;span style=&#34;color:#75715e&#34;&gt;# List packages installed&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;uv pip install &amp;lt;pkg1 pkg2..&amp;gt;  &lt;span style=&#34;color:#75715e&#34;&gt;# Install package into an environment&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;uv pip install -p &lt;span style=&#34;color:#ae81ff&#34;&gt;3.14&lt;/span&gt; &amp;lt;pkg&amp;gt;  &lt;span style=&#34;color:#75715e&#34;&gt;# Install into specific version&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Install packages into the system Python environment (non-virtual)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;uv pip install --system &amp;lt;pkg&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Allow UV to modify an `EXTERNALLY-MANAGED` Python installation&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;uv pip install --system --break-system-packages &amp;lt;pkg&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Create UV Project Areas&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;######################################################&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;uv init               &lt;span style=&#34;color:#75715e&#34;&gt;# Create in CWD, default proj type = --app&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;uv init &amp;lt;proj_name&amp;gt;   &lt;span style=&#34;color:#75715e&#34;&gt;# Create a default named project&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;uv init --bare        &lt;span style=&#34;color:#75715e&#34;&gt;# Only create a pyproject.toml&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;uv init --app         &lt;span style=&#34;color:#75715e&#34;&gt;# Application project - this is the default&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;uv init --package     &lt;span style=&#34;color:#75715e&#34;&gt;# Package project&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;uv init --lib         &lt;span style=&#34;color:#75715e&#34;&gt;# Library project&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;uv version            &lt;span style=&#34;color:#75715e&#34;&gt;# _Project_ version, as listed in the pyproject.toml&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Build Project&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;######################################################&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;uv build    &lt;span style=&#34;color:#75715e&#34;&gt;# Build Lib/Pkg using UV or specified Build-Backend&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# UV Tools&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;######################################################&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Run Tools&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;uvx &amp;lt;tool&amp;gt;          &lt;span style=&#34;color:#75715e&#34;&gt;# UVX is an alias for &amp;#39;uv tool run&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;uvx &amp;lt;tool@version&amp;gt;  &lt;span style=&#34;color:#75715e&#34;&gt;# Specify Tool Version: &amp;lt;tool@version&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;uvx &amp;lt;tool&amp;gt;@latest   &lt;span style=&#34;color:#75715e&#34;&gt;# Latest Tool Version&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;uv cache clean      &lt;span style=&#34;color:#75715e&#34;&gt;# Deletes all entries in the cache&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Install Tools&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;uv tool install &amp;lt;tool&amp;gt;        &lt;span style=&#34;color:#75715e&#34;&gt;# [install | uninstall | upgrade]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;uv tool install &amp;lt;tool&amp;gt;@latest &lt;span style=&#34;color:#75715e&#34;&gt;# Install latest version of &amp;lt;tool&amp;gt; &lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;uv tool update-shell          &lt;span style=&#34;color:#75715e&#34;&gt;# Ensure Tool Exe on path (if not already)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Tool Info&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;uv tool dir        &lt;span style=&#34;color:#75715e&#34;&gt;# Installed source&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;uv tool dir --bin  &lt;span style=&#34;color:#75715e&#34;&gt;# Installed executable&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;uv tool list       &lt;span style=&#34;color:#75715e&#34;&gt;# List Installed Tools&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;Python development is evolving rapidly, and &lt;a href=&#34;https://docs.astral.sh/uv/&#34;&gt;UV&lt;/a&gt; is at the forefront of this transformation. In this post, I wanted to document my experience switching to UV, why and I how I&amp;rsquo;ve started the move to a modern workflow.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Modernizing Python Development: Linting and Formatting with Ruff</title>
