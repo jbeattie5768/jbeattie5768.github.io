@@ -124,8 +124,8 @@ The new PyREPL has been available since Python 3.13, and replaces the original C
   "keywords": [
     "Python", "REPL", "VSCode", "Issue"
   ],
-  "articleBody": " PyREPL in VSCode is Possible\nThe PyREPL I use the REPL all the time and I’m enjoying the new PyREPL.\nIf you haven’t yet moved to Python 3.14, you should - PyREPL is another compelling reason to update.\nThe new PyREPL has been available since Python 3.13, and replaces the original C-based REPL with a Python-based implementation (PyREPL). You can read about the PyREPL in ‘PEP 762 – REPL-acing the default REPL’.\nKey benefits of the new PyREPL:\nColoured output for improved readability New built-in commands (exit, quit, copyright, help, clear) Improved paste handling for multi-line code Block-level history and a persistent history file (.python_history) Better Windows/PowerShell support Inline help and history convenience keys (F1/F2 mappings may vary by terminal) Using the PyREPL in VSCode I’ve had trouble with the terminal in VSCode in the past (see this blog post), and by default VSCode currently disables the PyREPL (VSCode-Python Issue #25240) - this is the case in the September 2025 (version 1.105.1) release:\nVSCode showing the default (C-based) Python REPL — no PyREPL features such as coloured output or easy exit.\nNot ideal.\nThis also seems to be the case for the VSCode Insiders version (I observed it in the 1.106.0-insider version).\nI’d expect this to be a temporary thing for VSCode, and they are working on changing it.\nVSCode sets the PYTHON_BASIC_REPL environment variable within its environment, which forces the basic REPL and prevents PyREPL from loading.\nYou can change this default behaviour in your VSCode user settings (settings.json) by adding:\n{ // Disable Python extension shell integration so the system can load PyREPL \"python.terminal.shellIntegration.enabled\": false } You’ll need to kill the terminal for it to take effect:\nPyREPL in VSCode: coloured output, and easy exit.\nA thing of beauty!\nIf you still see the old REPL after changing the user settings, restart VSCode.\nThere have been reports of cursor indentation issues (see CPython Issue #126131) when using PyREPL in VSCode, but I’ve not noticed any major issues yet.\nReferences https://github.com/pypy/pypy/tree/d102094b863ce49b7af030dcb0cecaac515d97c6/lib_pypy/pyrepl https://peps.python.org/pep-0762 https://github.com/microsoft/vscode-python/issues/25164 https://github.com/microsoft/vscode-python/issues/25240 https://github.com/microsoft/vscode-python/pull/25216 https://github.com/microsoft/vscode-python/pull/25281 https://github.com/python/cpython/issues/126172 https://github.com/python/cpython/issues/126131 https://code.visualstudio.com/docs/terminal/shell-integration Edits to this Post 30 Oct 2025: Added banner image to post. ",
-  "wordCount" : "352",
+  "articleBody": " PyREPL in VSCode is Possible\nThe PyREPL I use the REPL all the time and I’m enjoying the new PyREPL.\nIf you haven’t yet moved to Python 3.14, you should - PyREPL is another compelling reason to update.\nThe new PyREPL has been available since Python 3.13, and replaces the original C-based REPL with a Python-based implementation (PyREPL). You can read about the PyREPL in ‘PEP 762 – REPL-acing the default REPL’.\nKey benefits of the new PyREPL:\nColoured output for improved readability New built-in commands (exit, quit, copyright, help, clear) Improved paste handling for multi-line code Block-level history and a persistent history file (.python_history) Better Windows/PowerShell support Inline help and history convenience keys (F1/F2 mappings may vary by terminal) Using the PyREPL in VSCode I’ve had trouble with the terminal in VSCode in the past (see this blog post), and by default VSCode currently disables the PyREPL (VSCode-Python Issue #25240) - this is the case in the September 2025 (version 1.105.1) release:\nVSCode showing the default (C-based) Python REPL — no PyREPL features such as coloured output or easy exit.\nNot ideal.\nThis also appears to be the case for the VSCode Insiders version (I observed it in the 1.106.0-insider version).\nI expect this to be a temporary thing for VSCode, and that the VSCode team is working on changing it.\nVSCode sets the PYTHON_BASIC_REPL environment variable within its environment, which forces the basic REPL and prevents PyREPL from loading.\nYou can change this default behaviour in your VSCode user settings (settings.json) by adding:\n{ // Disable Python extension shell integration so the system can load PyREPL \"python.terminal.shellIntegration.enabled\": false } You’ll need to kill the terminal for it to take effect:\nPyREPL in VSCode: coloured output, and easy exit.\nA thing of beauty!\nIf you still see the old REPL after changing the user settings, restart VSCode.\nThere have been reports of cursor indentation issues (see CPython Issue #126131) when using PyREPL in VSCode, but I’ve not noticed any major issues yet.\nEssential Keyboard Shortcuts There are a number of keyboard bindings (keyboard shortcuts) available for the new PyRepl. These bindings are defined in the default CPython keymap in Lib/_pyrepl/reader.py and extended for history in Lib/_pyrepl/historical_reader.py.\nThe key ones [pun absolutely intended] I use are:\nKey Combination Action Ctrl+c interrupt Ctrl+g cancel Ctrl+k kill-line Ctrl+l clear-screen Ctrl+n next-history Ctrl+p previous-history Ctrl+r reverse-history-isearch F1 help F2 show-history Use Ctrl+n/Ctrl+p to skip scrolling through history code blocks.\nI also use standard key combinations, such as the Home/End keys, Ctrl + \u003c-/-\u003e, Ctrl + Shift \u003c-/-\u003e, and so on.\nExtended bindings I tend not to use frequently enough to memorise:\nKey Combination Action Ctrl+a beginning-of-line Ctrl+b left Ctrl+d delete Ctrl+e end-of-line Ctrl+f right Ctrl+h backspace Ctrl+j accept (enter) Ctrl+m accept Ctrl+t transpose-characters Ctrl+u unix-line-discard Ctrl+w unix-word-rubout Ctrl+y yank Meta+b backward-word Meta+c capitalize-word Meta+d kill-word Meta+f forward-word Meta+l downcase-word Meta+t transpose-words Meta+u upcase-word Meta+y yank-pop Meta+- digit-arg Meta+0..9 digit-arg Ctrl+o operate-and-get-next Ctrl+s forward-history-isearch Meta+r restore-history Page Down history-search-forward Page Up history-search-backward F3 paste-mode On Windows and Linux, use Alt for Meta.\nOn Mac, use Option (⌥) for Meta (unless your terminal remaps it).\nReferences https://github.com/pypy/pypy/tree/d102094b863ce49b7af030dcb0cecaac515d97c6/lib_pypy/pyrepl https://peps.python.org/pep-0762 https://github.com/microsoft/vscode-python/issues/25164 https://github.com/microsoft/vscode-python/issues/25240 https://github.com/microsoft/vscode-python/pull/25216 https://github.com/microsoft/vscode-python/pull/25281 https://github.com/python/cpython/issues/126172 https://github.com/python/cpython/issues/126131 https://code.visualstudio.com/docs/terminal/shell-integration Edits to this Post 30 Oct 2025: Added banner image to post. 05 Jan 2026: Added keyboard shortcuts section ",
+  "wordCount" : "549",
   "inLanguage": "en",
   "datePublished": "2025-10-27T00:00:00Z",
   "dateModified": "2025-10-27T00:00:00Z",
@@ -254,8 +254,8 @@ If you haven&rsquo;t yet moved to Python 3.14, you should - PyREPL is another co
 </figure>
 
 <p>Not ideal.</p>
-<p>This also seems to be the case for the VSCode Insiders version (I observed it in the <em>1.106.0-insider</em> version).<br>
-I&rsquo;d expect this to be a temporary thing for VSCode, and they are working on changing it.</p>
+<p>This also appears to be the case for the VSCode Insiders version (I observed it in the <em>1.106.0-insider</em> version).<br>
+I expect this to be a temporary thing for VSCode, and that the VSCode team is working on changing it.</p>
 <p>VSCode sets the <a href="https://docs.python.org/3/using/cmdline.html#envvar-PYTHON_BASIC_REPL"><code>PYTHON_BASIC_REPL</code></a> environment variable within its environment, which forces the basic REPL and prevents PyREPL from loading.</p>
 <p>You <strong>can</strong> change this default behaviour in your VSCode <strong>user</strong> settings (<code>settings.json</code>) by adding:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
@@ -274,6 +274,183 @@ I&rsquo;d expect this to be a temporary thing for VSCode, and they are working o
 <blockquote class="note"><p>If you still see the old REPL after changing the user settings, restart VSCode.</p></blockquote>
 <p>There have been reports of cursor indentation issues (see <a href="https://github.com/python/cpython/issues/126131">CPython Issue #126131</a>) when using PyREPL in VSCode, but I&rsquo;ve not noticed any major issues <strong>yet</strong>.</p>
 <hr>
+<h2 id="essential-keyboard-shortcuts">Essential Keyboard Shortcuts<a hidden class="anchor" aria-hidden="true" href="#essential-keyboard-shortcuts">#</a></h2>
+<p>There are a number of keyboard bindings (keyboard shortcuts) available for the new PyRepl. These bindings are defined in the default CPython keymap in <a href="https://github.com/python/cpython/blob/3.14/Lib/_pyrepl/reader.py">Lib/_pyrepl/reader.py</a> and extended for history in <a href="https://github.com/python/cpython/blob/3.14/Lib/_pyrepl/historical_reader.py">Lib/_pyrepl/historical_reader.py</a>.</p>
+<p>The key ones <em>[pun absolutely intended]</em> I use are:</p>
+<table>
+  <thead>
+      <tr>
+          <th>Key Combination</th>
+          <th>Action</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Ctrl+c</td>
+          <td>interrupt</td>
+      </tr>
+      <tr>
+          <td>Ctrl+g</td>
+          <td>cancel</td>
+      </tr>
+      <tr>
+          <td>Ctrl+k</td>
+          <td>kill-line</td>
+      </tr>
+      <tr>
+          <td>Ctrl+l</td>
+          <td>clear-screen</td>
+      </tr>
+      <tr>
+          <td>Ctrl+n</td>
+          <td>next-history</td>
+      </tr>
+      <tr>
+          <td>Ctrl+p</td>
+          <td>previous-history</td>
+      </tr>
+      <tr>
+          <td>Ctrl+r</td>
+          <td>reverse-history-isearch</td>
+      </tr>
+      <tr>
+          <td>F1</td>
+          <td>help</td>
+      </tr>
+      <tr>
+          <td>F2</td>
+          <td>show-history</td>
+      </tr>
+  </tbody>
+</table>
+<blockquote class="note"><p>Use Ctrl+n/Ctrl+p to skip scrolling through history code blocks.</p></blockquote>
+<p>I also use standard key combinations, such as the <em>Home/End keys</em>, <em>Ctrl + &lt;-/-&gt;</em>, <em>Ctrl + Shift &lt;-/-&gt;</em>, and so on.</p>
+<p>Extended bindings I tend not to use frequently enough to memorise:</p>
+<table>
+  <thead>
+      <tr>
+          <th>Key Combination</th>
+          <th>Action</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Ctrl+a</td>
+          <td>beginning-of-line</td>
+      </tr>
+      <tr>
+          <td>Ctrl+b</td>
+          <td>left</td>
+      </tr>
+      <tr>
+          <td>Ctrl+d</td>
+          <td>delete</td>
+      </tr>
+      <tr>
+          <td>Ctrl+e</td>
+          <td>end-of-line</td>
+      </tr>
+      <tr>
+          <td>Ctrl+f</td>
+          <td>right</td>
+      </tr>
+      <tr>
+          <td>Ctrl+h</td>
+          <td>backspace</td>
+      </tr>
+      <tr>
+          <td>Ctrl+j</td>
+          <td>accept (enter)</td>
+      </tr>
+      <tr>
+          <td>Ctrl+m</td>
+          <td>accept</td>
+      </tr>
+      <tr>
+          <td>Ctrl+t</td>
+          <td>transpose-characters</td>
+      </tr>
+      <tr>
+          <td>Ctrl+u</td>
+          <td>unix-line-discard</td>
+      </tr>
+      <tr>
+          <td>Ctrl+w</td>
+          <td>unix-word-rubout</td>
+      </tr>
+      <tr>
+          <td>Ctrl+y</td>
+          <td>yank</td>
+      </tr>
+      <tr>
+          <td>Meta+b</td>
+          <td>backward-word</td>
+      </tr>
+      <tr>
+          <td>Meta+c</td>
+          <td>capitalize-word</td>
+      </tr>
+      <tr>
+          <td>Meta+d</td>
+          <td>kill-word</td>
+      </tr>
+      <tr>
+          <td>Meta+f</td>
+          <td>forward-word</td>
+      </tr>
+      <tr>
+          <td>Meta+l</td>
+          <td>downcase-word</td>
+      </tr>
+      <tr>
+          <td>Meta+t</td>
+          <td>transpose-words</td>
+      </tr>
+      <tr>
+          <td>Meta+u</td>
+          <td>upcase-word</td>
+      </tr>
+      <tr>
+          <td>Meta+y</td>
+          <td>yank-pop</td>
+      </tr>
+      <tr>
+          <td>Meta+-</td>
+          <td>digit-arg</td>
+      </tr>
+      <tr>
+          <td>Meta+0..9</td>
+          <td>digit-arg</td>
+      </tr>
+      <tr>
+          <td>Ctrl+o</td>
+          <td>operate-and-get-next</td>
+      </tr>
+      <tr>
+          <td>Ctrl+s</td>
+          <td>forward-history-isearch</td>
+      </tr>
+      <tr>
+          <td>Meta+r</td>
+          <td>restore-history</td>
+      </tr>
+      <tr>
+          <td>Page Down</td>
+          <td>history-search-forward</td>
+      </tr>
+      <tr>
+          <td>Page Up</td>
+          <td>history-search-backward</td>
+      </tr>
+      <tr>
+          <td>F3</td>
+          <td>paste-mode</td>
+      </tr>
+  </tbody>
+</table>
+<blockquote class="note"><p>On Windows and Linux, use Alt for Meta.<br>
+On Mac, use Option (⌥) for Meta (unless your terminal remaps it).</p></blockquote>
+<hr>
 <h2 id="references">References<a hidden class="anchor" aria-hidden="true" href="#references">#</a></h2>
 <ul>
 <li><a href="https://github.com/pypy/pypy/tree/d102094b863ce49b7af030dcb0cecaac515d97c6/lib_pypy/pyrepl">https://github.com/pypy/pypy/tree/d102094b863ce49b7af030dcb0cecaac515d97c6/lib_pypy/pyrepl</a></li>
@@ -290,6 +467,7 @@ I&rsquo;d expect this to be a temporary thing for VSCode, and they are working o
 <h3 id="edits-to-this-post">Edits to this Post<a hidden class="anchor" aria-hidden="true" href="#edits-to-this-post">#</a></h3>
 <ul>
 <li>30 Oct 2025: Added banner image to post.</li>
+<li>05 Jan 2026: Added keyboard shortcuts section</li>
 </ul>
 
 
@@ -315,7 +493,7 @@ I&rsquo;d expect this to be a temporary thing for VSCode, and they are working o
     </main>
     
 <footer class="footer">
-        <span>&copy; 2025 <a href="https://jbeattie5768.github.io/">Jonathan B</a></span> · 
+        <span>&copy; 2026 <a href="https://jbeattie5768.github.io/">Jonathan B</a></span> · 
 
     <span>
         Powered by

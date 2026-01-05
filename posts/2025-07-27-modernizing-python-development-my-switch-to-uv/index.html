@@ -69,6 +69,7 @@ uvx python@3.14 &lt;script&gt;.py   # Specific version
 uv venv                 # Use the default Python version
 uv venv &lt;venv_name&gt;     # Specify the Venv name
 uv venv --python 3.14   # Specify the Python version for the Venv
+uv venv --prompt &lt;prmt&gt; # Alternative prompt prefix for the Venv
 uv venv --seed          # Add the PiP module to the Venv
 
 # Activate Venus
@@ -78,29 +79,44 @@ deactivate
 
 # Add Dependencies - normally into current venv
 ######################################################
+# Will add to &#39;pyproject.toml&#39;, &#39;uv.lock&#39; and sync the venv
 uv add &lt;pkg1,...&gt;     # Add one or more dependencies to the project
                       # Version Specifiers allowed, e.g. rich&gt;13.9.1
 uv add -r requirements.txt  # Add all in the given `requirements.txt`
 uv remove &lt;pkg1,...&gt;        # Remove dependencies from the project
 
-# Requires &#39;pyproject.toml&#39;
-uv tree                       # View the dependency tree
-uv tree --outdated --depth 1  # View latest available versions
-
-uv sync               # Sync environment from uv.lock
-uv lock               # Create uv.lock (happens automatically anyway)
-
-uv sync ---upgrade    # Edit pyproject.toml to change package version, then...
-
 # &#39;pyproject.toml&#39; [dependency-groups]
 uv add --dev &lt;pkg1,...&gt;            # Add to the development group
 uv add --group test &lt;testpkg&gt;      # Add to user named `test` group
 uv add &lt;azurepkg&gt; --optional azure # Add Optional to &#39;azure&#39; group
-                      # Remove is the same ordering,
-                      # e.g. &#34;uv remove --dev tox coverage&#34;
+                                   # Remove is the same
+# Requires a &#39;pyproject.toml&#39;
+uv tree                       # View the project dependency tree
+uv tree --outdated --depth 1  # View latest available versions
+uv pip tree                   # View the environment dependency tree
+
+# Update packages
+# 1: Update uv.lock file to version in &#39;pyproject.toml&#39;
+uv lock --upgrade
+uv lock --upgrade-package &lt;pkg&gt;
+# 2: call &#39;uv sync&#39; to update your venv from lock file
+uv sync                       # Sync environment from uv.lock
+
+# Add/Update InLine Script Metadata (PEP 723)
+uv add --script &lt;script&gt; &lt;pkg1 ...&gt; # Can pass a requirements file with &#39;-r&#39;
+                                    # Can set Python version with &#39;--python&#39;
+
+# Export the project&#39;s lockfile to an alternate format
+uv export --no-annotate --no-dev --no-emit-workspace --no-header --no-hashes --output-file requirements.txt  # pylock.toml (PEP 751) also supported 
+
+# &#39;uv.lock&#39; file created first time a UV proj cmd is run
+# i.e., uv run, uv add, uv sync, uv lock
+uv lock            # Manually create lock file
+uv lock --check    # Check if the lockfile is up-to-date
 
 # Manage Python packages with a pip-compatible interface
 ######################################################
+# You should have done &#39;uv venv --seed&#39; to use these
 uv pip list                   # List packages installed
 uv pip install &lt;pkg1 pkg2..&gt;  # Install package into an environment
 uv pip install -p 3.14 &lt;pkg&gt;  # Install into specific version
@@ -196,7 +212,7 @@ Python development is evolving rapidly, and UV is at the forefront of this trans
 </noscript><meta property="og:url" content="https://jbeattie5768.github.io/posts/2025-07-27-modernizing-python-development-my-switch-to-uv/">
   <meta property="og:site_name" content="Jonathan B">
   <meta property="og:title" content="Modernizing Python Development: My Switch to UV">
-  <meta property="og:description" content=" Summary of Common UV Commands # Install UV - multiple options available ###################################################### # Windows powershell -ExecutionPolicy ByPass -c &#34;irm &lt;https://astral.sh/uv/install.ps1&gt; | iex&#34; winget install --id=astral-sh.uv -e # Linux/macOS curl -LsSf &#34;https://astral.sh/uv/install.sh&#34; | less brew install uv # Python pipx install uv # alternative is pip uv --version # or &#39;uv self version&#39; uv --help # --help can be used with all commands uv self update # Update UV itself # Install and Manage Python ###################################################### uv python install # Install latest Python version uv python install 3.10.5 # Install specific Python version uv python install --default # Add python.exe to $HOME\.local\bin\ uv python install --reinstall # Reinstall uv-managed Python versions uv python list # List available Python versions uv python list --managed-python # Only list managed Python versions uv python list --no-managed-python # Only list system Python versions uv python upgrade 3.14 # Install the latest patch version uv python uninstall 3.10.5 # Uninstall version uv python find 3.14 # Show path for a specific python.exe uv run where &lt;exe_name&gt; # Show path(s) of all &lt;exe_name&gt;.exe uv python pin 3.14 # Use a specific version in the _current directory_ # Creates a .python-version file # UV Uninstall uv cache clean # Optional, but recommended rm -r &#34;$(uv python dir)&#34; # Optional, but recommended rm -r &#34;$(uv tool dir)&#34; # Optional, but recommended rm $HOME\.local\bin\uv*.exe # Windows rm ~/.local/bin/uv ~/.local/bin/uvx # Linux/macOS # Run Python ###################################################### uv run python # REPL with default version uv run &lt;script&gt;.py # Default version uv run -p 3.14 &lt;script&gt;.py # Specific version, --python alias uv run python [py_option] # Standard Python cmd options uv run --with &lt;pkg&gt; &lt;script&gt;.py # Include dependency package # Multiple --with allowed # Can use UVX, but take care when trying to run pytest, mypy, etc uvx python@3.14 &lt;script&gt;.py # Specific version # Create Virtual Environment (Venv) ###################################################### uv venv # Use the default Python version uv venv &lt;venv_name&gt; # Specify the Venv name uv venv --python 3.14 # Specify the Python version for the Venv uv venv --seed # Add the PiP module to the Venv # Activate Venus .venv\Scripts\activate # PowerShell source .venv/bin/activate # Linux/macOS deactivate # Add Dependencies - normally into current venv ###################################################### uv add &lt;pkg1,...&gt; # Add one or more dependencies to the project # Version Specifiers allowed, e.g. rich&gt;13.9.1 uv add -r requirements.txt # Add all in the given `requirements.txt` uv remove &lt;pkg1,...&gt; # Remove dependencies from the project # Requires &#39;pyproject.toml&#39; uv tree # View the dependency tree uv tree --outdated --depth 1 # View latest available versions uv sync # Sync environment from uv.lock uv lock # Create uv.lock (happens automatically anyway) uv sync ---upgrade # Edit pyproject.toml to change package version, then... # &#39;pyproject.toml&#39; [dependency-groups] uv add --dev &lt;pkg1,...&gt; # Add to the development group uv add --group test &lt;testpkg&gt; # Add to user named `test` group uv add &lt;azurepkg&gt; --optional azure # Add Optional to &#39;azure&#39; group # Remove is the same ordering, # e.g. &#34;uv remove --dev tox coverage&#34; # Manage Python packages with a pip-compatible interface ###################################################### uv pip list # List packages installed uv pip install &lt;pkg1 pkg2..&gt; # Install package into an environment uv pip install -p 3.14 &lt;pkg&gt; # Install into specific version # Install packages into the system Python environment (non-virtual) uv pip install --system &lt;pkg&gt; # Allow UV to modify an `EXTERNALLY-MANAGED` Python installation uv pip install --system --break-system-packages &lt;pkg&gt; # Create UV Project Areas ###################################################### uv init # Create in CWD, default proj type = --app uv init &lt;proj_name&gt; # Create a default named project uv init --bare # Only create a pyproject.toml uv init --app # Application project - this is the default uv init --package # Package project uv init --lib # Library project uv version # _Project_ version, as listed in the pyproject.toml # Build Project ###################################################### uv build # Build Lib/Pkg using UV or specified Build-Backend # UV Tools ###################################################### # Run Tools uvx &lt;tool&gt; # UVX is an alias for &#39;uv tool run&#39; uvx &lt;tool@version&gt; # Specify Tool Version: &lt;tool@version&gt; uvx &lt;tool&gt;@latest # Latest Tool Version uv cache clean # Deletes all entries in the cache # Install Tools uv tool install &lt;tool&gt; # [install | uninstall | upgrade] uv tool install &lt;tool&gt;@latest # Install latest version of &lt;tool&gt; uv tool update-shell # Ensure Tool Exe on path (if not already) # Tool Info uv tool dir # Installed source uv tool dir --bin # Installed executable uv tool list # List Installed Tools Introduction Python development is evolving rapidly, and UV is at the forefront of this transformation. In this post, I wanted to document my experience switching to UV, why and I how I’ve started the move to a modern workflow.">
+  <meta property="og:description" content=" Summary of Common UV Commands # Install UV - multiple options available ###################################################### # Windows powershell -ExecutionPolicy ByPass -c &#34;irm &lt;https://astral.sh/uv/install.ps1&gt; | iex&#34; winget install --id=astral-sh.uv -e # Linux/macOS curl -LsSf &#34;https://astral.sh/uv/install.sh&#34; | less brew install uv # Python pipx install uv # alternative is pip uv --version # or &#39;uv self version&#39; uv --help # --help can be used with all commands uv self update # Update UV itself # Install and Manage Python ###################################################### uv python install # Install latest Python version uv python install 3.10.5 # Install specific Python version uv python install --default # Add python.exe to $HOME\.local\bin\ uv python install --reinstall # Reinstall uv-managed Python versions uv python list # List available Python versions uv python list --managed-python # Only list managed Python versions uv python list --no-managed-python # Only list system Python versions uv python upgrade 3.14 # Install the latest patch version uv python uninstall 3.10.5 # Uninstall version uv python find 3.14 # Show path for a specific python.exe uv run where &lt;exe_name&gt; # Show path(s) of all &lt;exe_name&gt;.exe uv python pin 3.14 # Use a specific version in the _current directory_ # Creates a .python-version file # UV Uninstall uv cache clean # Optional, but recommended rm -r &#34;$(uv python dir)&#34; # Optional, but recommended rm -r &#34;$(uv tool dir)&#34; # Optional, but recommended rm $HOME\.local\bin\uv*.exe # Windows rm ~/.local/bin/uv ~/.local/bin/uvx # Linux/macOS # Run Python ###################################################### uv run python # REPL with default version uv run &lt;script&gt;.py # Default version uv run -p 3.14 &lt;script&gt;.py # Specific version, --python alias uv run python [py_option] # Standard Python cmd options uv run --with &lt;pkg&gt; &lt;script&gt;.py # Include dependency package # Multiple --with allowed # Can use UVX, but take care when trying to run pytest, mypy, etc uvx python@3.14 &lt;script&gt;.py # Specific version # Create Virtual Environment (Venv) ###################################################### uv venv # Use the default Python version uv venv &lt;venv_name&gt; # Specify the Venv name uv venv --python 3.14 # Specify the Python version for the Venv uv venv --prompt &lt;prmt&gt; # Alternative prompt prefix for the Venv uv venv --seed # Add the PiP module to the Venv # Activate Venus .venv\Scripts\activate # PowerShell source .venv/bin/activate # Linux/macOS deactivate # Add Dependencies - normally into current venv ###################################################### # Will add to &#39;pyproject.toml&#39;, &#39;uv.lock&#39; and sync the venv uv add &lt;pkg1,...&gt; # Add one or more dependencies to the project # Version Specifiers allowed, e.g. rich&gt;13.9.1 uv add -r requirements.txt # Add all in the given `requirements.txt` uv remove &lt;pkg1,...&gt; # Remove dependencies from the project # &#39;pyproject.toml&#39; [dependency-groups] uv add --dev &lt;pkg1,...&gt; # Add to the development group uv add --group test &lt;testpkg&gt; # Add to user named `test` group uv add &lt;azurepkg&gt; --optional azure # Add Optional to &#39;azure&#39; group # Remove is the same # Requires a &#39;pyproject.toml&#39; uv tree # View the project dependency tree uv tree --outdated --depth 1 # View latest available versions uv pip tree # View the environment dependency tree # Update packages # 1: Update uv.lock file to version in &#39;pyproject.toml&#39; uv lock --upgrade uv lock --upgrade-package &lt;pkg&gt; # 2: call &#39;uv sync&#39; to update your venv from lock file uv sync # Sync environment from uv.lock # Add/Update InLine Script Metadata (PEP 723) uv add --script &lt;script&gt; &lt;pkg1 ...&gt; # Can pass a requirements file with &#39;-r&#39; # Can set Python version with &#39;--python&#39; # Export the project&#39;s lockfile to an alternate format uv export --no-annotate --no-dev --no-emit-workspace --no-header --no-hashes --output-file requirements.txt # pylock.toml (PEP 751) also supported # &#39;uv.lock&#39; file created first time a UV proj cmd is run # i.e., uv run, uv add, uv sync, uv lock uv lock # Manually create lock file uv lock --check # Check if the lockfile is up-to-date # Manage Python packages with a pip-compatible interface ###################################################### # You should have done &#39;uv venv --seed&#39; to use these uv pip list # List packages installed uv pip install &lt;pkg1 pkg2..&gt; # Install package into an environment uv pip install -p 3.14 &lt;pkg&gt; # Install into specific version # Install packages into the system Python environment (non-virtual) uv pip install --system &lt;pkg&gt; # Allow UV to modify an `EXTERNALLY-MANAGED` Python installation uv pip install --system --break-system-packages &lt;pkg&gt; # Create UV Project Areas ###################################################### uv init # Create in CWD, default proj type = --app uv init &lt;proj_name&gt; # Create a default named project uv init --bare # Only create a pyproject.toml uv init --app # Application project - this is the default uv init --package # Package project uv init --lib # Library project uv version # _Project_ version, as listed in the pyproject.toml # Build Project ###################################################### uv build # Build Lib/Pkg using UV or specified Build-Backend # UV Tools ###################################################### # Run Tools uvx &lt;tool&gt; # UVX is an alias for &#39;uv tool run&#39; uvx &lt;tool@version&gt; # Specify Tool Version: &lt;tool@version&gt; uvx &lt;tool&gt;@latest # Latest Tool Version uv cache clean # Deletes all entries in the cache # Install Tools uv tool install &lt;tool&gt; # [install | uninstall | upgrade] uv tool install &lt;tool&gt;@latest # Install latest version of &lt;tool&gt; uv tool update-shell # Ensure Tool Exe on path (if not already) # Tool Info uv tool dir # Installed source uv tool dir --bin # Installed executable uv tool list # List Installed Tools Introduction Python development is evolving rapidly, and UV is at the forefront of this transformation. In this post, I wanted to document my experience switching to UV, why and I how I’ve started the move to a modern workflow.">
   <meta property="og:locale" content="en-gb">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -269,6 +285,7 @@ uvx python@3.14 &lt;script&gt;.py   # Specific version
 uv venv                 # Use the default Python version
 uv venv &lt;venv_name&gt;     # Specify the Venv name
 uv venv --python 3.14   # Specify the Python version for the Venv
+uv venv --prompt &lt;prmt&gt; # Alternative prompt prefix for the Venv
 uv venv --seed          # Add the PiP module to the Venv
 
 # Activate Venus
@@ -278,29 +295,44 @@ deactivate
 
 # Add Dependencies - normally into current venv
 ######################################################
+# Will add to &#39;pyproject.toml&#39;, &#39;uv.lock&#39; and sync the venv
 uv add &lt;pkg1,...&gt;     # Add one or more dependencies to the project
                       # Version Specifiers allowed, e.g. rich&gt;13.9.1
 uv add -r requirements.txt  # Add all in the given `requirements.txt`
 uv remove &lt;pkg1,...&gt;        # Remove dependencies from the project
 
-# Requires &#39;pyproject.toml&#39;
-uv tree                       # View the dependency tree
-uv tree --outdated --depth 1  # View latest available versions
-
-uv sync               # Sync environment from uv.lock
-uv lock               # Create uv.lock (happens automatically anyway)
-
-uv sync ---upgrade    # Edit pyproject.toml to change package version, then...
-
 # &#39;pyproject.toml&#39; [dependency-groups]
 uv add --dev &lt;pkg1,...&gt;            # Add to the development group
 uv add --group test &lt;testpkg&gt;      # Add to user named `test` group
 uv add &lt;azurepkg&gt; --optional azure # Add Optional to &#39;azure&#39; group
-                      # Remove is the same ordering,
-                      # e.g. &#34;uv remove --dev tox coverage&#34;
+                                   # Remove is the same
+# Requires a &#39;pyproject.toml&#39;
+uv tree                       # View the project dependency tree
+uv tree --outdated --depth 1  # View latest available versions
+uv pip tree                   # View the environment dependency tree
+
+# Update packages
+# 1: Update uv.lock file to version in &#39;pyproject.toml&#39;
+uv lock --upgrade
+uv lock --upgrade-package &lt;pkg&gt;
+# 2: call &#39;uv sync&#39; to update your venv from lock file
+uv sync                       # Sync environment from uv.lock
+
+# Add/Update InLine Script Metadata (PEP 723)
+uv add --script &lt;script&gt; &lt;pkg1 ...&gt; # Can pass a requirements file with &#39;-r&#39;
+                                    # Can set Python version with &#39;--python&#39;
+
+# Export the project&#39;s lockfile to an alternate format
+uv export --no-annotate --no-dev --no-emit-workspace --no-header --no-hashes --output-file requirements.txt  # pylock.toml (PEP 751) also supported 
+
+# &#39;uv.lock&#39; file created first time a UV proj cmd is run
+# i.e., uv run, uv add, uv sync, uv lock
+uv lock            # Manually create lock file
+uv lock --check    # Check if the lockfile is up-to-date
 
 # Manage Python packages with a pip-compatible interface
 ######################################################
+# You should have done &#39;uv venv --seed&#39; to use these
 uv pip list                   # List packages installed
 uv pip install &lt;pkg1 pkg2..&gt;  # Install package into an environment
 uv pip install -p 3.14 &lt;pkg&gt;  # Install into specific version
@@ -374,12 +406,12 @@ Python development is evolving rapidly, and UV is at the forefront of this trans
   "@type": "BlogPosting",
   "headline": "Modernizing Python Development: My Switch to UV",
   "name": "Modernizing Python Development: My Switch to UV",
-  "description": " Summary of Common UV Commands # Install UV - multiple options available ###################################################### # Windows powershell -ExecutionPolicy ByPass -c \u0026#34;irm \u0026lt;https://astral.sh/uv/install.ps1\u0026gt; | iex\u0026#34; winget install --id=astral-sh.uv -e # Linux/macOS curl -LsSf \u0026#34;https://astral.sh/uv/install.sh\u0026#34; | less brew install uv # Python pipx install uv # alternative is pip uv --version # or \u0026#39;uv self version\u0026#39; uv --help # --help can be used with all commands uv self update # Update UV itself # Install and Manage Python ###################################################### uv python install # Install latest Python version uv python install 3.10.5 # Install specific Python version uv python install --default # Add python.exe to $HOME\\.local\\bin\\ uv python install --reinstall # Reinstall uv-managed Python versions uv python list # List available Python versions uv python list --managed-python # Only list managed Python versions uv python list --no-managed-python # Only list system Python versions uv python upgrade 3.14 # Install the latest patch version uv python uninstall 3.10.5 # Uninstall version uv python find 3.14 # Show path for a specific python.exe uv run where \u0026lt;exe_name\u0026gt; # Show path(s) of all \u0026lt;exe_name\u0026gt;.exe uv python pin 3.14 # Use a specific version in the _current directory_ # Creates a .python-version file # UV Uninstall uv cache clean # Optional, but recommended rm -r \u0026#34;$(uv python dir)\u0026#34; # Optional, but recommended rm -r \u0026#34;$(uv tool dir)\u0026#34; # Optional, but recommended rm $HOME\\.local\\bin\\uv*.exe # Windows rm ~/.local/bin/uv ~/.local/bin/uvx # Linux/macOS # Run Python ###################################################### uv run python # REPL with default version uv run \u0026lt;script\u0026gt;.py # Default version uv run -p 3.14 \u0026lt;script\u0026gt;.py # Specific version, --python alias uv run python [py_option] # Standard Python cmd options uv run --with \u0026lt;pkg\u0026gt; \u0026lt;script\u0026gt;.py # Include dependency package # Multiple --with allowed # Can use UVX, but take care when trying to run pytest, mypy, etc uvx python@3.14 \u0026lt;script\u0026gt;.py # Specific version # Create Virtual Environment (Venv) ###################################################### uv venv # Use the default Python version uv venv \u0026lt;venv_name\u0026gt; # Specify the Venv name uv venv --python 3.14 # Specify the Python version for the Venv uv venv --seed # Add the PiP module to the Venv # Activate Venus .venv\\Scripts\\activate # PowerShell source .venv/bin/activate # Linux/macOS deactivate # Add Dependencies - normally into current venv ###################################################### uv add \u0026lt;pkg1,...\u0026gt; # Add one or more dependencies to the project # Version Specifiers allowed, e.g. rich\u0026gt;13.9.1 uv add -r requirements.txt # Add all in the given `requirements.txt` uv remove \u0026lt;pkg1,...\u0026gt; # Remove dependencies from the project # Requires \u0026#39;pyproject.toml\u0026#39; uv tree # View the dependency tree uv tree --outdated --depth 1 # View latest available versions uv sync # Sync environment from uv.lock uv lock # Create uv.lock (happens automatically anyway) uv sync ---upgrade # Edit pyproject.toml to change package version, then... # \u0026#39;pyproject.toml\u0026#39; [dependency-groups] uv add --dev \u0026lt;pkg1,...\u0026gt; # Add to the development group uv add --group test \u0026lt;testpkg\u0026gt; # Add to user named `test` group uv add \u0026lt;azurepkg\u0026gt; --optional azure # Add Optional to \u0026#39;azure\u0026#39; group # Remove is the same ordering, # e.g. \u0026#34;uv remove --dev tox coverage\u0026#34; # Manage Python packages with a pip-compatible interface ###################################################### uv pip list # List packages installed uv pip install \u0026lt;pkg1 pkg2..\u0026gt; # Install package into an environment uv pip install -p 3.14 \u0026lt;pkg\u0026gt; # Install into specific version # Install packages into the system Python environment (non-virtual) uv pip install --system \u0026lt;pkg\u0026gt; # Allow UV to modify an `EXTERNALLY-MANAGED` Python installation uv pip install --system --break-system-packages \u0026lt;pkg\u0026gt; # Create UV Project Areas ###################################################### uv init # Create in CWD, default proj type = --app uv init \u0026lt;proj_name\u0026gt; # Create a default named project uv init --bare # Only create a pyproject.toml uv init --app # Application project - this is the default uv init --package # Package project uv init --lib # Library project uv version # _Project_ version, as listed in the pyproject.toml # Build Project ###################################################### uv build # Build Lib/Pkg using UV or specified Build-Backend # UV Tools ###################################################### # Run Tools uvx \u0026lt;tool\u0026gt; # UVX is an alias for \u0026#39;uv tool run\u0026#39; uvx \u0026lt;tool@version\u0026gt; # Specify Tool Version: \u0026lt;tool@version\u0026gt; uvx \u0026lt;tool\u0026gt;@latest # Latest Tool Version uv cache clean # Deletes all entries in the cache # Install Tools uv tool install \u0026lt;tool\u0026gt; # [install | uninstall | upgrade] uv tool install \u0026lt;tool\u0026gt;@latest # Install latest version of \u0026lt;tool\u0026gt; uv tool update-shell # Ensure Tool Exe on path (if not already) # Tool Info uv tool dir # Installed source uv tool dir --bin # Installed executable uv tool list # List Installed Tools Introduction Python development is evolving rapidly, and UV is at the forefront of this transformation. In this post, I wanted to document my experience switching to UV, why and I how I\u0026rsquo;ve started the move to a modern workflow.\n",
+  "description": " Summary of Common UV Commands # Install UV - multiple options available ###################################################### # Windows powershell -ExecutionPolicy ByPass -c \u0026#34;irm \u0026lt;https://astral.sh/uv/install.ps1\u0026gt; | iex\u0026#34; winget install --id=astral-sh.uv -e # Linux/macOS curl -LsSf \u0026#34;https://astral.sh/uv/install.sh\u0026#34; | less brew install uv # Python pipx install uv # alternative is pip uv --version # or \u0026#39;uv self version\u0026#39; uv --help # --help can be used with all commands uv self update # Update UV itself # Install and Manage Python ###################################################### uv python install # Install latest Python version uv python install 3.10.5 # Install specific Python version uv python install --default # Add python.exe to $HOME\\.local\\bin\\ uv python install --reinstall # Reinstall uv-managed Python versions uv python list # List available Python versions uv python list --managed-python # Only list managed Python versions uv python list --no-managed-python # Only list system Python versions uv python upgrade 3.14 # Install the latest patch version uv python uninstall 3.10.5 # Uninstall version uv python find 3.14 # Show path for a specific python.exe uv run where \u0026lt;exe_name\u0026gt; # Show path(s) of all \u0026lt;exe_name\u0026gt;.exe uv python pin 3.14 # Use a specific version in the _current directory_ # Creates a .python-version file # UV Uninstall uv cache clean # Optional, but recommended rm -r \u0026#34;$(uv python dir)\u0026#34; # Optional, but recommended rm -r \u0026#34;$(uv tool dir)\u0026#34; # Optional, but recommended rm $HOME\\.local\\bin\\uv*.exe # Windows rm ~/.local/bin/uv ~/.local/bin/uvx # Linux/macOS # Run Python ###################################################### uv run python # REPL with default version uv run \u0026lt;script\u0026gt;.py # Default version uv run -p 3.14 \u0026lt;script\u0026gt;.py # Specific version, --python alias uv run python [py_option] # Standard Python cmd options uv run --with \u0026lt;pkg\u0026gt; \u0026lt;script\u0026gt;.py # Include dependency package # Multiple --with allowed # Can use UVX, but take care when trying to run pytest, mypy, etc uvx python@3.14 \u0026lt;script\u0026gt;.py # Specific version # Create Virtual Environment (Venv) ###################################################### uv venv # Use the default Python version uv venv \u0026lt;venv_name\u0026gt; # Specify the Venv name uv venv --python 3.14 # Specify the Python version for the Venv uv venv --prompt \u0026lt;prmt\u0026gt; # Alternative prompt prefix for the Venv uv venv --seed # Add the PiP module to the Venv # Activate Venus .venv\\Scripts\\activate # PowerShell source .venv/bin/activate # Linux/macOS deactivate # Add Dependencies - normally into current venv ###################################################### # Will add to \u0026#39;pyproject.toml\u0026#39;, \u0026#39;uv.lock\u0026#39; and sync the venv uv add \u0026lt;pkg1,...\u0026gt; # Add one or more dependencies to the project # Version Specifiers allowed, e.g. rich\u0026gt;13.9.1 uv add -r requirements.txt # Add all in the given `requirements.txt` uv remove \u0026lt;pkg1,...\u0026gt; # Remove dependencies from the project # \u0026#39;pyproject.toml\u0026#39; [dependency-groups] uv add --dev \u0026lt;pkg1,...\u0026gt; # Add to the development group uv add --group test \u0026lt;testpkg\u0026gt; # Add to user named `test` group uv add \u0026lt;azurepkg\u0026gt; --optional azure # Add Optional to \u0026#39;azure\u0026#39; group # Remove is the same # Requires a \u0026#39;pyproject.toml\u0026#39; uv tree # View the project dependency tree uv tree --outdated --depth 1 # View latest available versions uv pip tree # View the environment dependency tree # Update packages # 1: Update uv.lock file to version in \u0026#39;pyproject.toml\u0026#39; uv lock --upgrade uv lock --upgrade-package \u0026lt;pkg\u0026gt; # 2: call \u0026#39;uv sync\u0026#39; to update your venv from lock file uv sync # Sync environment from uv.lock # Add/Update InLine Script Metadata (PEP 723) uv add --script \u0026lt;script\u0026gt; \u0026lt;pkg1 ...\u0026gt; # Can pass a requirements file with \u0026#39;-r\u0026#39; # Can set Python version with \u0026#39;--python\u0026#39; # Export the project\u0026#39;s lockfile to an alternate format uv export --no-annotate --no-dev --no-emit-workspace --no-header --no-hashes --output-file requirements.txt # pylock.toml (PEP 751) also supported # \u0026#39;uv.lock\u0026#39; file created first time a UV proj cmd is run # i.e., uv run, uv add, uv sync, uv lock uv lock # Manually create lock file uv lock --check # Check if the lockfile is up-to-date # Manage Python packages with a pip-compatible interface ###################################################### # You should have done \u0026#39;uv venv --seed\u0026#39; to use these uv pip list # List packages installed uv pip install \u0026lt;pkg1 pkg2..\u0026gt; # Install package into an environment uv pip install -p 3.14 \u0026lt;pkg\u0026gt; # Install into specific version # Install packages into the system Python environment (non-virtual) uv pip install --system \u0026lt;pkg\u0026gt; # Allow UV to modify an `EXTERNALLY-MANAGED` Python installation uv pip install --system --break-system-packages \u0026lt;pkg\u0026gt; # Create UV Project Areas ###################################################### uv init # Create in CWD, default proj type = --app uv init \u0026lt;proj_name\u0026gt; # Create a default named project uv init --bare # Only create a pyproject.toml uv init --app # Application project - this is the default uv init --package # Package project uv init --lib # Library project uv version # _Project_ version, as listed in the pyproject.toml # Build Project ###################################################### uv build # Build Lib/Pkg using UV or specified Build-Backend # UV Tools ###################################################### # Run Tools uvx \u0026lt;tool\u0026gt; # UVX is an alias for \u0026#39;uv tool run\u0026#39; uvx \u0026lt;tool@version\u0026gt; # Specify Tool Version: \u0026lt;tool@version\u0026gt; uvx \u0026lt;tool\u0026gt;@latest # Latest Tool Version uv cache clean # Deletes all entries in the cache # Install Tools uv tool install \u0026lt;tool\u0026gt; # [install | uninstall | upgrade] uv tool install \u0026lt;tool\u0026gt;@latest # Install latest version of \u0026lt;tool\u0026gt; uv tool update-shell # Ensure Tool Exe on path (if not already) # Tool Info uv tool dir # Installed source uv tool dir --bin # Installed executable uv tool list # List Installed Tools Introduction Python development is evolving rapidly, and UV is at the forefront of this transformation. In this post, I wanted to document my experience switching to UV, why and I how I\u0026rsquo;ve started the move to a modern workflow.\n",
   "keywords": [
     "Python", "Tools", "UV"
   ],
   "articleBody": " Summary of Common UV Commands # Install UV - multiple options available ###################################################### # Windows powershell -ExecutionPolicy ByPass -c \"irm | iex\" winget install --id=astral-sh.uv -e # Linux/macOS curl -LsSf \"https://astral.sh/uv/install.sh\" | less brew install uv # Python pipx install uv # alternative is pip uv --version # or 'uv self version' uv --help # --help can be used with all commands uv self update # Update UV itself # Install and Manage Python ###################################################### uv python install # Install latest Python version uv python install 3.10.5 # Install specific Python version uv python install --default # Add python.exe to $HOME\\.local\\bin\\ uv python install --reinstall # Reinstall uv-managed Python versions uv python list # List available Python versions uv python list --managed-python # Only list managed Python versions uv python list --no-managed-python # Only list system Python versions uv python upgrade 3.14 # Install the latest patch version uv python uninstall 3.10.5 # Uninstall version uv python find 3.14 # Show path for a specific python.exe uv run where # Show path(s) of all .exe uv python pin 3.14 # Use a specific version in the _current directory_ # Creates a .python-version file # UV Uninstall uv cache clean # Optional, but recommended rm -r \"$(uv python dir)\" # Optional, but recommended rm -r \"$(uv tool dir)\" # Optional, but recommended rm $HOME\\.local\\bin\\uv*.exe # Windows rm ~/.local/bin/uv ~/.local/bin/uvx # Linux/macOS # Run Python ###################################################### uv run python # REPL with default version uv run ",
-  "wordCount" : "3699",
+  "wordCount" : "3850",
   "inLanguage": "en",
   "datePublished": "2025-07-27T00:00:00Z",
   "dateModified": "2025-07-27T00:00:00Z",
@@ -540,6 +572,7 @@ Python development is evolving rapidly, and UV is at the forefront of this trans
 </span></span><span style="display:flex;"><span>uv venv                 <span style="color:#75715e"># Use the default Python version</span>
 </span></span><span style="display:flex;"><span>uv venv &lt;venv_name&gt;     <span style="color:#75715e"># Specify the Venv name</span>
 </span></span><span style="display:flex;"><span>uv venv --python <span style="color:#ae81ff">3.14</span>   <span style="color:#75715e"># Specify the Python version for the Venv</span>
+</span></span><span style="display:flex;"><span>uv venv --prompt &lt;prmt&gt; <span style="color:#75715e"># Alternative prompt prefix for the Venv</span>
 </span></span><span style="display:flex;"><span>uv venv --seed          <span style="color:#75715e"># Add the PiP module to the Venv</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># Activate Venus</span>
@@ -549,29 +582,44 @@ Python development is evolving rapidly, and UV is at the forefront of this trans
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># Add Dependencies - normally into current venv</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">######################################################</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Will add to &#39;pyproject.toml&#39;, &#39;uv.lock&#39; and sync the venv</span>
 </span></span><span style="display:flex;"><span>uv add &lt;pkg1,...&gt;     <span style="color:#75715e"># Add one or more dependencies to the project</span>
 </span></span><span style="display:flex;"><span>                      <span style="color:#75715e"># Version Specifiers allowed, e.g. rich&gt;13.9.1</span>
 </span></span><span style="display:flex;"><span>uv add -r requirements.txt  <span style="color:#75715e"># Add all in the given `requirements.txt`</span>
 </span></span><span style="display:flex;"><span>uv remove &lt;pkg1,...&gt;        <span style="color:#75715e"># Remove dependencies from the project</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Requires &#39;pyproject.toml&#39;</span>
-</span></span><span style="display:flex;"><span>uv tree                       <span style="color:#75715e"># View the dependency tree</span>
-</span></span><span style="display:flex;"><span>uv tree --outdated --depth <span style="color:#ae81ff">1</span>  <span style="color:#75715e"># View latest available versions</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>uv sync               <span style="color:#75715e"># Sync environment from uv.lock</span>
-</span></span><span style="display:flex;"><span>uv lock               <span style="color:#75715e"># Create uv.lock (happens automatically anyway)</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>uv sync ---upgrade    <span style="color:#75715e"># Edit pyproject.toml to change package version, then...</span>
-</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># &#39;pyproject.toml&#39; [dependency-groups]</span>
 </span></span><span style="display:flex;"><span>uv add --dev &lt;pkg1,...&gt;            <span style="color:#75715e"># Add to the development group</span>
 </span></span><span style="display:flex;"><span>uv add --group test &lt;testpkg&gt;      <span style="color:#75715e"># Add to user named `test` group</span>
 </span></span><span style="display:flex;"><span>uv add &lt;azurepkg&gt; --optional azure <span style="color:#75715e"># Add Optional to &#39;azure&#39; group</span>
-</span></span><span style="display:flex;"><span>                      <span style="color:#75715e"># Remove is the same ordering,</span>
-</span></span><span style="display:flex;"><span>                      <span style="color:#75715e"># e.g. &#34;uv remove --dev tox coverage&#34;</span>
+</span></span><span style="display:flex;"><span>                                   <span style="color:#75715e"># Remove is the same</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Requires a &#39;pyproject.toml&#39;</span>
+</span></span><span style="display:flex;"><span>uv tree                       <span style="color:#75715e"># View the project dependency tree</span>
+</span></span><span style="display:flex;"><span>uv tree --outdated --depth <span style="color:#ae81ff">1</span>  <span style="color:#75715e"># View latest available versions</span>
+</span></span><span style="display:flex;"><span>uv pip tree                   <span style="color:#75715e"># View the environment dependency tree</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Update packages</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 1: Update uv.lock file to version in &#39;pyproject.toml&#39;</span>
+</span></span><span style="display:flex;"><span>uv lock --upgrade
+</span></span><span style="display:flex;"><span>uv lock --upgrade-package &lt;pkg&gt;
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 2: call &#39;uv sync&#39; to update your venv from lock file</span>
+</span></span><span style="display:flex;"><span>uv sync                       <span style="color:#75715e"># Sync environment from uv.lock</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Add/Update InLine Script Metadata (PEP 723)</span>
+</span></span><span style="display:flex;"><span>uv add --script &lt;script&gt; &lt;pkg1 ...&gt; <span style="color:#75715e"># Can pass a requirements file with &#39;-r&#39;</span>
+</span></span><span style="display:flex;"><span>                                    <span style="color:#75715e"># Can set Python version with &#39;--python&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Export the project&#39;s lockfile to an alternate format</span>
+</span></span><span style="display:flex;"><span>uv export --no-annotate --no-dev --no-emit-workspace --no-header --no-hashes --output<span style="color:#f92672">-file</span> requirements.txt  <span style="color:#75715e"># pylock.toml (PEP 751) also supported </span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># &#39;uv.lock&#39; file created first time a UV proj cmd is run</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># i.e., uv run, uv add, uv sync, uv lock</span>
+</span></span><span style="display:flex;"><span>uv lock            <span style="color:#75715e"># Manually create lock file</span>
+</span></span><span style="display:flex;"><span>uv lock --check    <span style="color:#75715e"># Check if the lockfile is up-to-date</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># Manage Python packages with a pip-compatible interface</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">######################################################</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># You should have done &#39;uv venv --seed&#39; to use these</span>
 </span></span><span style="display:flex;"><span>uv pip list                   <span style="color:#75715e"># List packages installed</span>
 </span></span><span style="display:flex;"><span>uv pip install &lt;pkg1 pkg2..&gt;  <span style="color:#75715e"># Install package into an environment</span>
 </span></span><span style="display:flex;"><span>uv pip install -p <span style="color:#ae81ff">3.14</span> &lt;pkg&gt;  <span style="color:#75715e"># Install into specific version</span>
@@ -1112,6 +1160,7 @@ Simple scripts will continue to use a top-level default UV structure (<code>uv i
 <ul>
 <li>30 Oct 2025: Updated Markdown and removed emoji&rsquo;s.</li>
 <li>30 Oct 2025: Update and moved UV commands to top of page (easier referencing by me).</li>
+<li>15 Nov 2025: Updated UV commands for uninstall and exporting and updating packages</li>
 </ul>
 
 
@@ -1141,7 +1190,7 @@ Simple scripts will continue to use a top-level default UV structure (<code>uv i
     </main>
     
 <footer class="footer">
-        <span>&copy; 2025 <a href="https://jbeattie5768.github.io/">Jonathan B</a></span> · 
+        <span>&copy; 2026 <a href="https://jbeattie5768.github.io/">Jonathan B</a></span> · 
 
     <span>
         Powered by

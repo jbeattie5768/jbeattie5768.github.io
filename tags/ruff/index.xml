@@ -13,7 +13,8 @@
       <link>https://jbeattie5768.github.io/posts/2025-07-18-using-ruff-to-improve-python-development/</link>
       <pubDate>Fri, 18 Jul 2025 00:00:00 +0000</pubDate>
       <guid>https://jbeattie5768.github.io/posts/2025-07-18-using-ruff-to-improve-python-development/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;https://github.com/astral-sh/ruff&#34;&gt;&lt;img alt=&#34;Ruff&#34; loading=&#34;lazy&#34; src=&#34;https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img alt=&#34;Diff Changes for &lt;code&gt;example.py&lt;/code&gt;&#34; loading=&#34;lazy&#34; src=&#34;https://jbeattie5768.github.io/posts/2025-07-18-using-ruff-to-improve-python-development/images/image-5.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/astral-sh/ruff&#34;&gt;&lt;img alt=&#34;Ruff&#34; loading=&#34;lazy&#34; src=&#34;https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json&#34;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#introduction&#34;&gt;Introduction&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#what-are-linters-and-formatters&#34;&gt;What are Linters and Formatters&lt;/a&gt;
@@ -54,8 +55,7 @@
 &lt;/ul&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
-&lt;p&gt;Python development is evolving—today, code quality and consistency are more important than ever. &lt;strong&gt;Strict&lt;/strong&gt; is the new &lt;em&gt;cool&lt;/em&gt;.&lt;/p&gt;
-&lt;p&gt;Tools like &lt;a href=&#34;https://github.com/psf/black&#34;&gt;Black&lt;/a&gt; have made opinionated formatting mainstream, and the need for readable, maintainable, and error-free code is greater than ever—especially as projects grow and AI-driven code/tools become more prevalent.&lt;/p&gt;</description>
+&lt;p&gt;Python development is evolving—today, code quality and consistency are more important than ever. &lt;strong&gt;Strict&lt;/strong&gt; is the new &lt;em&gt;cool&lt;/em&gt;.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

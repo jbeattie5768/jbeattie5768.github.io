@@ -75,6 +75,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;uv venv                 &lt;span style=&#34;color:#75715e&#34;&gt;# Use the default Python version&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;uv venv &amp;lt;venv_name&amp;gt;     &lt;span style=&#34;color:#75715e&#34;&gt;# Specify the Venv name&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;uv venv --python &lt;span style=&#34;color:#ae81ff&#34;&gt;3.14&lt;/span&gt;   &lt;span style=&#34;color:#75715e&#34;&gt;# Specify the Python version for the Venv&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;uv venv --prompt &amp;lt;prmt&amp;gt; &lt;span style=&#34;color:#75715e&#34;&gt;# Alternative prompt prefix for the Venv&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;uv venv --seed          &lt;span style=&#34;color:#75715e&#34;&gt;# Add the PiP module to the Venv&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Activate Venus&lt;/span&gt;
@@ -84,29 +85,44 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Add Dependencies - normally into current venv&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;######################################################&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Will add to &amp;#39;pyproject.toml&amp;#39;, &amp;#39;uv.lock&amp;#39; and sync the venv&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;uv add &amp;lt;pkg1,...&amp;gt;     &lt;span style=&#34;color:#75715e&#34;&gt;# Add one or more dependencies to the project&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                      &lt;span style=&#34;color:#75715e&#34;&gt;# Version Specifiers allowed, e.g. rich&amp;gt;13.9.1&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;uv add -r requirements.txt  &lt;span style=&#34;color:#75715e&#34;&gt;# Add all in the given `requirements.txt`&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;uv remove &amp;lt;pkg1,...&amp;gt;        &lt;span style=&#34;color:#75715e&#34;&gt;# Remove dependencies from the project&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Requires &amp;#39;pyproject.toml&amp;#39;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;uv tree                       &lt;span style=&#34;color:#75715e&#34;&gt;# View the dependency tree&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;uv tree --outdated --depth &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;  &lt;span style=&#34;color:#75715e&#34;&gt;# View latest available versions&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;uv sync               &lt;span style=&#34;color:#75715e&#34;&gt;# Sync environment from uv.lock&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;uv lock               &lt;span style=&#34;color:#75715e&#34;&gt;# Create uv.lock (happens automatically anyway)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;uv sync ---upgrade    &lt;span style=&#34;color:#75715e&#34;&gt;# Edit pyproject.toml to change package version, then...&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# &amp;#39;pyproject.toml&amp;#39; [dependency-groups]&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;uv add --dev &amp;lt;pkg1,...&amp;gt;            &lt;span style=&#34;color:#75715e&#34;&gt;# Add to the development group&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;uv add --group test &amp;lt;testpkg&amp;gt;      &lt;span style=&#34;color:#75715e&#34;&gt;# Add to user named `test` group&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;uv add &amp;lt;azurepkg&amp;gt; --optional azure &lt;span style=&#34;color:#75715e&#34;&gt;# Add Optional to &amp;#39;azure&amp;#39; group&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                      &lt;span style=&#34;color:#75715e&#34;&gt;# Remove is the same ordering,&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                      &lt;span style=&#34;color:#75715e&#34;&gt;# e.g. &amp;#34;uv remove --dev tox coverage&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                                   &lt;span style=&#34;color:#75715e&#34;&gt;# Remove is the same&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Requires a &amp;#39;pyproject.toml&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;uv tree                       &lt;span style=&#34;color:#75715e&#34;&gt;# View the project dependency tree&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;uv tree --outdated --depth &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;  &lt;span style=&#34;color:#75715e&#34;&gt;# View latest available versions&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;uv pip tree                   &lt;span style=&#34;color:#75715e&#34;&gt;# View the environment dependency tree&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Update packages&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# 1: Update uv.lock file to version in &amp;#39;pyproject.toml&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;uv lock --upgrade
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;uv lock --upgrade-package &amp;lt;pkg&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# 2: call &amp;#39;uv sync&amp;#39; to update your venv from lock file&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;uv sync                       &lt;span style=&#34;color:#75715e&#34;&gt;# Sync environment from uv.lock&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Add/Update InLine Script Metadata (PEP 723)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;uv add --script &amp;lt;script&amp;gt; &amp;lt;pkg1 ...&amp;gt; &lt;span style=&#34;color:#75715e&#34;&gt;# Can pass a requirements file with &amp;#39;-r&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                                    &lt;span style=&#34;color:#75715e&#34;&gt;# Can set Python version with &amp;#39;--python&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Export the project&amp;#39;s lockfile to an alternate format&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;uv export --no-annotate --no-dev --no-emit-workspace --no-header --no-hashes --output&lt;span style=&#34;color:#f92672&#34;&gt;-file&lt;/span&gt; requirements.txt  &lt;span style=&#34;color:#75715e&#34;&gt;# pylock.toml (PEP 751) also supported &lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# &amp;#39;uv.lock&amp;#39; file created first time a UV proj cmd is run&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# i.e., uv run, uv add, uv sync, uv lock&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;uv lock            &lt;span style=&#34;color:#75715e&#34;&gt;# Manually create lock file&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;uv lock --check    &lt;span style=&#34;color:#75715e&#34;&gt;# Check if the lockfile is up-to-date&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Manage Python packages with a pip-compatible interface&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;######################################################&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# You should have done &amp;#39;uv venv --seed&amp;#39; to use these&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;uv pip list                   &lt;span style=&#34;color:#75715e&#34;&gt;# List packages installed&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;uv pip install &amp;lt;pkg1 pkg2..&amp;gt;  &lt;span style=&#34;color:#75715e&#34;&gt;# Install package into an environment&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;uv pip install -p &lt;span style=&#34;color:#ae81ff&#34;&gt;3.14&lt;/span&gt; &amp;lt;pkg&amp;gt;  &lt;span style=&#34;color:#75715e&#34;&gt;# Install into specific version&lt;/span&gt;
@@ -158,7 +174,8 @@
       <link>https://jbeattie5768.github.io/posts/2025-07-18-using-ruff-to-improve-python-development/</link>
       <pubDate>Fri, 18 Jul 2025 00:00:00 +0000</pubDate>
       <guid>https://jbeattie5768.github.io/posts/2025-07-18-using-ruff-to-improve-python-development/</guid>
-      <description>&lt;p&gt;&lt;a href=&#34;https://github.com/astral-sh/ruff&#34;&gt;&lt;img alt=&#34;Ruff&#34; loading=&#34;lazy&#34; src=&#34;https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json&#34;&gt;&lt;/a&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img alt=&#34;Diff Changes for &lt;code&gt;example.py&lt;/code&gt;&#34; loading=&#34;lazy&#34; src=&#34;https://jbeattie5768.github.io/posts/2025-07-18-using-ruff-to-improve-python-development/images/image-5.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/astral-sh/ruff&#34;&gt;&lt;img alt=&#34;Ruff&#34; loading=&#34;lazy&#34; src=&#34;https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json&#34;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#introduction&#34;&gt;Introduction&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#what-are-linters-and-formatters&#34;&gt;What are Linters and Formatters&lt;/a&gt;
@@ -199,8 +216,7 @@
 &lt;/ul&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
-&lt;p&gt;Python development is evolving—today, code quality and consistency are more important than ever. &lt;strong&gt;Strict&lt;/strong&gt; is the new &lt;em&gt;cool&lt;/em&gt;.&lt;/p&gt;
-&lt;p&gt;Tools like &lt;a href=&#34;https://github.com/psf/black&#34;&gt;Black&lt;/a&gt; have made opinionated formatting mainstream, and the need for readable, maintainable, and error-free code is greater than ever—especially as projects grow and AI-driven code/tools become more prevalent.&lt;/p&gt;</description>
+&lt;p&gt;Python development is evolving—today, code quality and consistency are more important than ever. &lt;strong&gt;Strict&lt;/strong&gt; is the new &lt;em&gt;cool&lt;/em&gt;.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
