@@ -58,11 +58,15 @@
 &lt;li&gt;&lt;a href=&#34;#deleting-a-registry-key-or-value&#34;&gt;Deleting a Registry Key or Value&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#8-try-it-yourself&#34;&gt;8. Try It Yourself&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#8-try-it-yourself&#34;&gt;8. Try It Yourself&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#edits-to-this-post&#34;&gt;Edits to this Post&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;1-introduction&#34;&gt;1. Introduction&lt;/h2&gt;
-&lt;p&gt;Curiosity often leads to some of the most interesting projects. After reading about &lt;a href=&#34;https://peps.python.org/pep-0514/&#34;&gt;PEP 514&lt;/a&gt; in the Astral &lt;a href=&#34;https://docs.astral.sh/uv/&#34;&gt;UV&lt;/a&gt; documentation, I discovered that Python installations on Windows are registered in the Windows Registry. Intrigued, I tried the sample code from PEP 514, only to find it lacking. This post documents my journey to build a more robust, flexible Python script for reading Windows Registry values. Hopefully this may be useful for someone.&lt;/p&gt;</description>
+&lt;p&gt;Curiosity often leads to some of the most interesting projects. After reading about &lt;a href=&#34;https://peps.python.org/pep-0514/&#34;&gt;PEP 514&lt;/a&gt; in the Astral &lt;a href=&#34;https://docs.astral.sh/uv/&#34;&gt;UV&lt;/a&gt; documentation, I discovered that Python installations on Windows are registered in the Windows Registry. Intrigued, I tried the sample code from PEP 514, only to find it lacking. This post documents my journey to build a more robust, flexible Python script for reading Windows Registry values. I hope this will be useful to others.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
