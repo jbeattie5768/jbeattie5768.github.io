@@ -115,7 +115,7 @@ That might be handy, so re-enabling it afterwards would be okay if you really wa
       <pubDate>Sun, 27 Jul 2025 00:00:00 +0000</pubDate>
       <guid>https://jbeattie5768.github.io/posts/2025-07-27-modernizing-python-development-my-switch-to-uv/</guid>
       <description>&lt;hr&gt;
-&lt;h3 id=&#34;summary-of-common-uv-commands&#34;&gt;Summary of Common UV Commands&lt;/h3&gt;
+&lt;h2 id=&#34;summary-of-common-uv-commands&#34;&gt;Summary of Common UV Commands  &lt;/h2&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-pwsh&#34; data-lang=&#34;pwsh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Install UV - multiple options available&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;######################################################&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Windows&lt;/span&gt;
@@ -171,39 +171,39 @@ That might be handy, so re-enabling it afterwards would be okay if you really wa
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Can use UVX, but take care when trying to run pytest, mypy, etc&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;uvx python@3.14 &amp;lt;script&amp;gt;.py   &lt;span style=&#34;color:#75715e&#34;&gt;# Specific version&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Create Virtual Environment (Venv)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Create Virtual Environment (venv)&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;######################################################&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;uv venv                 &lt;span style=&#34;color:#75715e&#34;&gt;# Use the default Python version&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;uv venv &amp;lt;venv_name&amp;gt;     &lt;span style=&#34;color:#75715e&#34;&gt;# Specify the Venv name&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;uv venv --python &lt;span style=&#34;color:#ae81ff&#34;&gt;3.14&lt;/span&gt;   &lt;span style=&#34;color:#75715e&#34;&gt;# Specify the Python version for the Venv&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;uv venv --prompt &amp;lt;prmt&amp;gt; &lt;span style=&#34;color:#75715e&#34;&gt;# Alternative prompt prefix for the Venv&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;uv venv --seed          &lt;span style=&#34;color:#75715e&#34;&gt;# Add the PiP module to the Venv&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;uv venv &amp;lt;venv_name&amp;gt;     &lt;span style=&#34;color:#75715e&#34;&gt;# Specify the venv name&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;uv venv --python &lt;span style=&#34;color:#ae81ff&#34;&gt;3.14&lt;/span&gt;   &lt;span style=&#34;color:#75715e&#34;&gt;# Specify the Python version for the venv&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;uv venv --prompt &amp;lt;prmt&amp;gt; &lt;span style=&#34;color:#75715e&#34;&gt;# Alternative prompt prefix for the venv&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;uv venv --seed          &lt;span style=&#34;color:#75715e&#34;&gt;# Add the pip module to the venv&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Activate Venus&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;.venv\Scripts\activate    &lt;span style=&#34;color:#75715e&#34;&gt;# PowerShell&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Activate venv&amp;#39;s&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;.venv\Scripts\activate     &lt;span style=&#34;color:#75715e&#34;&gt;# PowerShell&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;source .venv/bin/activate  &lt;span style=&#34;color:#75715e&#34;&gt;# Linux/macOS&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;deactivate
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Add Dependencies - normally into current venv&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;######################################################&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Will add to &amp;#39;pyproject.toml&amp;#39;, &amp;#39;uv.lock&amp;#39; and sync the venv&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Will add to pyproject.toml, uv.lock and sync the venv&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;uv add &amp;lt;pkg1,...&amp;gt;     &lt;span style=&#34;color:#75715e&#34;&gt;# Add one or more dependencies to the project&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                      &lt;span style=&#34;color:#75715e&#34;&gt;# Version Specifiers allowed, e.g. rich&amp;gt;13.9.1&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;uv add -r requirements.txt  &lt;span style=&#34;color:#75715e&#34;&gt;# Add all in the given `requirements.txt`&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;uv remove &amp;lt;pkg1,...&amp;gt;        &lt;span style=&#34;color:#75715e&#34;&gt;# Remove dependencies from the project&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# &amp;#39;pyproject.toml&amp;#39; [dependency-groups]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# pyproject.toml [dependency-groups]&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;uv add --dev &amp;lt;pkg1,...&amp;gt;            &lt;span style=&#34;color:#75715e&#34;&gt;# Add to the development group&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;uv add --group test &amp;lt;testpkg&amp;gt;      &lt;span style=&#34;color:#75715e&#34;&gt;# Add to user named `test` group&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;uv add &amp;lt;azurepkg&amp;gt; --optional azure &lt;span style=&#34;color:#75715e&#34;&gt;# Add Optional to &amp;#39;azure&amp;#39; group&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                                   &lt;span style=&#34;color:#75715e&#34;&gt;# Remove is the same&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Requires a &amp;#39;pyproject.toml&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Requires a pyproject.toml&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;uv tree                       &lt;span style=&#34;color:#75715e&#34;&gt;# View the project dependency tree&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;uv tree --outdated --depth &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;  &lt;span style=&#34;color:#75715e&#34;&gt;# View latest available versions&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;uv pip tree                   &lt;span style=&#34;color:#75715e&#34;&gt;# View the environment dependency tree&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Update packages&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# 1: Update uv.lock file to version in &amp;#39;pyproject.toml&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# 1: Update uv.lock file to version in pyproject.toml&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;uv lock --upgrade
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;uv lock --upgrade-package &amp;lt;pkg&amp;gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# 2: call &amp;#39;uv sync&amp;#39; to update your venv from lock file&lt;/span&gt;
@@ -242,7 +242,7 @@ That might be handy, so re-enabling it afterwards would be okay if you really wa
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;uv init --package     &lt;span style=&#34;color:#75715e&#34;&gt;# Package project&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;uv init --lib         &lt;span style=&#34;color:#75715e&#34;&gt;# Library project&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;uv version            &lt;span style=&#34;color:#75715e&#34;&gt;# _Project_ version, as listed in the pyproject.toml&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;uv version            &lt;span style=&#34;color:#75715e&#34;&gt;# Project version as listed in pyproject.toml&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Build Project&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;######################################################&lt;/span&gt;
@@ -266,8 +266,32 @@ That might be handy, so re-enabling it afterwards would be okay if you really wa
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;uv tool dir        &lt;span style=&#34;color:#75715e&#34;&gt;# Installed source&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;uv tool dir --bin  &lt;span style=&#34;color:#75715e&#34;&gt;# Installed executable&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;uv tool list       &lt;span style=&#34;color:#75715e&#34;&gt;# List Installed Tools&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
-&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;simple-library-project-creation---powershell-commands&#34;&gt;Simple Library Project Creation - PowerShell Commands  &lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-powershell&#34; data-lang=&#34;powershell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Powershell&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$proj_name = Read-Host &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;What is your-project-name?&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$proj_underscores = $proj &lt;span style=&#34;color:#f92672&#34;&gt;-replace&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;-&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;_&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;mkdir $proj_name
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;cd $proj_name
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Create a library&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;uv init --lib        &lt;span style=&#34;color:#75715e&#34;&gt;# auto creates hello() in ./src/$proj_name/__init__.py&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Use Dependency Groups (PEP 735)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;uv add --dev pytest  &lt;span style=&#34;color:#75715e&#34;&gt;# creates a .venv and uv.lock file&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;mkdir tests
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Use double-quotes to ref variables directly in string&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;echo &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;from &lt;/span&gt;$proj_underscores&lt;span style=&#34;color:#e6db74&#34;&gt; import hello
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;def test_hello():
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;    assert hello() == &amp;#34;&amp;#34;Hello from &lt;/span&gt;$proj_name&lt;span style=&#34;color:#e6db74&#34;&gt;!&amp;#34;&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt; &amp;gt; tests/test_$proj_underscores.py
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;uv run pytest
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;see &lt;a href=&#34;simple-src-layout-Example&#34;&gt;Simple Src Layout Example&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;introduction&#34;&gt;Introduction  &lt;/h2&gt;
 &lt;p&gt;Python development is evolving rapidly, and &lt;a href=&#34;https://docs.astral.sh/uv/&#34;&gt;UV&lt;/a&gt; is at the forefront of this transformation. In this post, I wanted to document my experience switching to UV, why and I how I&amp;rsquo;ve started the move to a modern workflow.&lt;/p&gt;</description>
     </item>
     <item>
@@ -306,7 +330,7 @@ That might be handy, so re-enabling it afterwards would be okay if you really wa
 &lt;li&gt;&lt;a href=&#34;#cli&#34;&gt;CLI&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#ide&#34;&gt;IDE&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#pre-commit&#34;&gt;Pre-Commit&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#github-action&#34;&gt;GitHub Action&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#github-actions&#34;&gt;GitHub Actions&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
